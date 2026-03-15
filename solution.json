@@ -1,0 +1,151 @@
+{
+  "abstract": "Fourier transformation remains a core primitive in scientific computing, signal processing, and ML systems, but practical performance and accuracy depend heavily on algorithm and hardware choices. This project will build a reproducible benchmark framework to compare modern Fourier transformation implementations across representative workloads (1D/2D/3D, real/complex, varying sizes, and precision modes). We will evaluate both numerical fidelity and system-level efficiency to identify configuration-specific SOTA candidates rather than a one-size-fits-all winner. The expected impact is a decision guide and open benchmark suite that helps researchers and engineers select the best Fourier pipeline for their constraints.",
+  "artifacts": [
+    {
+      "kind": "github_repo",
+      "label": "GitHub Repo",
+      "uri": "https://github.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c"
+    },
+    {
+      "kind": "paper_pdf",
+      "label": "Paper PDF",
+      "uri": "https://raw.githubusercontent.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c/main/paper/main.pdf"
+    },
+    {
+      "kind": "paper_thumbnail",
+      "label": "Paper Thumbnail",
+      "uri": "https://raw.githubusercontent.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c/main/paper/thumbnail.png"
+    },
+    {
+      "kind": "latex_sources",
+      "label": "LaTeX Sources",
+      "uri": "https://github.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c/blob/main/paper/main.tex"
+    },
+    {
+      "kind": "sources",
+      "label": "Sources",
+      "uri": "https://github.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c/blob/main/sources/sources.json"
+    }
+  ],
+  "artifacts_summary": "Writing presentation artifacts are complete: compile-verified manuscript (paper/main.tex -> paper/main.pdf), bibliography (paper/references.bib), equation usage map, four primary figure PDFs, core selector/dominance/bound/audit tables, and runtime/choice datasets. Retry repair addressed schema validation by ensuring semantic expectation acceptance criteria are populated.",
+  "compute_budget": "3",
+  "constraints": [
+    "Reproducible, hardware-annotated benchmarking across methods.",
+    "Use consistent preprocessing, normalization, and measurement procedures across compared methods.",
+    "Explicitly separate algorithmic effects from implementation/runtime effects.",
+    "Limit claims to tested environments and label results by workload class.",
+    "Deliver within target deadline of 2026-03-18."
+  ],
+  "context_id": "b5362065-2e2a-47fe-a2f7-c03bdc20080c",
+  "created_at": "2026-03-15T11:15:13.597104+00:00",
+  "difficulty": "Advanced",
+  "domain": "Machine Learning",
+  "evaluation_plan": "Run a fixed benchmark protocol over representative workloads (1D/2D/3D; real/complex; varying sizes; precision modes), report statistically stable performance and accuracy metrics per method, and derive scenario-specific recommendations with confidence intervals while controlling for preprocessing and runtime confounders.",
+  "expected_artifacts": [
+    "Paper",
+    "Code"
+  ],
+  "full_description": "Scope: This submission targets rigorous, application-relevant comparison of modern Fourier transformation approaches, with emphasis on practical SOTA selection by scenario. The work will cover direct transform performance, inverse transform stability, batched throughput, and behavior under precision and size variation. The output is not a new transform theory, but a validated methodology and recommendation matrix for current best-performing approaches.\n\nConstraints: Results must be reproducible, hardware-annotated, and comparable across methods using consistent preprocessing, normalization, and measurement procedures. The benchmark should explicitly separate algorithmic effects from implementation/runtime effects. Claims will be limited to tested environments and clearly labeled by workload class to avoid overgeneralization.\n\nSuccess criteria: (1) A complete benchmark protocol with fixed data generation and split policy, (2) statistically stable performance and accuracy reports for each method, (3) scenario-specific SOTA recommendations with confidence intervals, and (4) public release of scripts/configs required to rerun experiments.\n\nDeliverables: a benchmark specification document, experiment scripts, result tables/plots, and a final recommendation matrix mapping workload constraints (latency, throughput, memory, precision tolerance) to preferred Fourier methods.",
+  "goals": [
+    "Build a reproducible benchmark framework for modern Fourier transformation implementations.",
+    "Evaluate direct transform performance, inverse transform stability, and batched throughput across workload types.",
+    "Measure both numerical fidelity and system-level efficiency across dimensions, precision modes, and data types.",
+    "Produce scenario-specific SOTA recommendations with confidence intervals.",
+    "Release scripts/configurations required for full experiment reproducibility."
+  ],
+  "key_terms": [
+    "Fourier transformation",
+    "DFT",
+    "FFT",
+    "STFT",
+    "benchmarking",
+    "reproducibility",
+    "numerical fidelity",
+    "system-level efficiency",
+    "batched throughput",
+    "inverse transform stability",
+    "precision modes",
+    "recommendation matrix"
+  ],
+  "original_problem": {
+    "compute_budget": "3",
+    "constraints": [
+      "Reproducible, hardware-annotated benchmarking across methods.",
+      "Use consistent preprocessing, normalization, and measurement procedures across compared methods.",
+      "Explicitly separate algorithmic effects from implementation/runtime effects.",
+      "Limit claims to tested environments and label results by workload class.",
+      "Deliver within target deadline of 2026-03-18."
+    ],
+    "difficulty": "Advanced",
+    "domain": "Machine Learning",
+    "evaluation_plan": "Run a fixed benchmark protocol over representative workloads (1D/2D/3D; real/complex; varying sizes; precision modes), report statistically stable performance and accuracy metrics per method, and derive scenario-specific recommendations with confidence intervals while controlling for preprocessing and runtime confounders.",
+    "expected_artifacts": [
+      "Paper",
+      "Code"
+    ],
+    "full_description": "Scope: This submission targets rigorous, application-relevant comparison of modern Fourier transformation approaches, with emphasis on practical SOTA selection by scenario. The work will cover direct transform performance, inverse transform stability, batched throughput, and behavior under precision and size variation. The output is not a new transform theory, but a validated methodology and recommendation matrix for current best-performing approaches.\n\nConstraints: Results must be reproducible, hardware-annotated, and comparable across methods using consistent preprocessing, normalization, and measurement procedures. The benchmark should explicitly separate algorithmic effects from implementation/runtime effects. Claims will be limited to tested environments and clearly labeled by workload class to avoid overgeneralization.\n\nSuccess criteria: (1) A complete benchmark protocol with fixed data generation and split policy, (2) statistically stable performance and accuracy reports for each method, (3) scenario-specific SOTA recommendations with confidence intervals, and (4) public release of scripts/configs required to rerun experiments.\n\nDeliverables: a benchmark specification document, experiment scripts, result tables/plots, and a final recommendation matrix mapping workload constraints (latency, throughput, memory, precision tolerance) to preferred Fourier methods.",
+    "goals": [
+      "Build a reproducible benchmark framework for modern Fourier transformation implementations.",
+      "Evaluate direct transform performance, inverse transform stability, and batched throughput across workload types.",
+      "Measure both numerical fidelity and system-level efficiency across dimensions, precision modes, and data types.",
+      "Produce scenario-specific SOTA recommendations with confidence intervals.",
+      "Release scripts/configurations required for full experiment reproducibility."
+    ],
+    "key_terms": [
+      "Fourier transformation",
+      "DFT",
+      "FFT",
+      "STFT",
+      "benchmarking",
+      "reproducibility",
+      "numerical fidelity",
+      "system-level efficiency",
+      "batched throughput",
+      "inverse transform stability",
+      "precision modes",
+      "recommendation matrix"
+    ],
+    "problem_type": "Open Question",
+    "related_links": [
+      "Discrete Fourier Transform (DFT)",
+      "Fast Fourier Transform (FFT)",
+      "Short-Time Fourier Transform (STFT)"
+    ],
+    "request_text": "Title: Benchmarking and Selecting State-of-the-Art Modern Fourier Transformation Methods\nAbstract: Fourier transformation remains a core primitive in scientific computing, signal processing, and ML systems, but practical performance and accuracy depend heavily on algorithm and hardware choices. This project will build a reproducible benchmark framework to compare modern Fourier transformation implementations across representative workloads (1D/2D/3D, real/complex, varying sizes, and precision modes). We will evaluate both numerical fidelity and system-level efficiency to identify configuration-specific SOTA candidates rather than a one-size-fits-all winner. The expected impact is a decision guide and open benchmark suite that helps researchers and engineers select the best Fourier pipeline for their constraints.\nFull Description: Scope: This submission targets rigorous, application-relevant comparison of modern Fourier transformation approaches, with emphasis on practical SOTA selection by scenario. The work will cover direct transform performance, inverse transform stability, batched throughput, and behavior under precision and size variation. The output is not a new transform theory, but a validated methodology and recommendation matrix for current best-performing approaches.\n\nConstraints: Results must be reproducible, hardware-annotated, and comparable across methods using consistent preprocessing, normalization, and measurement procedures. The benchmark should explicitly separate algorithmic effects from implementation/runtime effects. Claims will be limited to tested environments and clearly labeled by workload class to avoid overgeneralization.\n\nSuccess criteria: (1) A complete benchmark protocol with fixed data generation and split policy, (2) statistically stable performance and accuracy reports for each method, (3) scenario-specific SOTA recommendations with confidence intervals, and (4) public release of scripts/configs required to rerun experiments.\n\nDeliverables: a benchmark specification document, experiment scripts, result tables/plots, and a final recommendation matrix mapping workload constraints (latency, throughput, memory, precision tolerance) to preferred Fourier methods.\nProblem Type: Open Question\nDifficulty: Advanced\nDomain: Machine Learning\nOriginator: Marius-Constantin Dinu\nCompute Budget: 3\nTarget Deadline: 2026-03-18\nTags: fourier-transform, fft, signal-processing, benchmarking, reproducibility\nCategories: Machine Learning\nExpected Artifacts: Paper, Code\nRelated Links: Discrete Fourier Transform (DFT), Fast Fourier Transform (FFT), Short-Time Fourier Transform (STFT)\nDataset Links: None",
+    "tags": [
+      "fourier-transform",
+      "fft",
+      "signal-processing",
+      "benchmarking",
+      "reproducibility"
+    ],
+    "target_deadline": "2026-03-18"
+  },
+  "paper_pdf_url": "https://raw.githubusercontent.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c/main/paper/main.pdf",
+  "paper_thumbnail_url": "https://raw.githubusercontent.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c/main/paper/thumbnail.png",
+  "parent_run_id": null,
+  "pipeline_id": "b5362065-2e2a-47fe-a2f7-c03bdc20080c",
+  "preview_run_id": "b5362065-2e2a-47fe-a2f7-c03bdc20080c",
+  "problem_type": "Open Question",
+  "published_run_id": "b5362065-2e2a-47fe-a2f7-c03bdc20080c",
+  "related_links": [
+    "Discrete Fourier Transform (DFT)",
+    "Fast Fourier Transform (FFT)",
+    "Short-Time Fourier Transform (STFT)"
+  ],
+  "repo_url": "https://github.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c",
+  "request_text": "Title: Benchmarking and Selecting State-of-the-Art Modern Fourier Transformation Methods\nAbstract: Fourier transformation remains a core primitive in scientific computing, signal processing, and ML systems, but practical performance and accuracy depend heavily on algorithm and hardware choices. This project will build a reproducible benchmark framework to compare modern Fourier transformation implementations across representative workloads (1D/2D/3D, real/complex, varying sizes, and precision modes). We will evaluate both numerical fidelity and system-level efficiency to identify configuration-specific SOTA candidates rather than a one-size-fits-all winner. The expected impact is a decision guide and open benchmark suite that helps researchers and engineers select the best Fourier pipeline for their constraints.\nFull Description: Scope: This submission targets rigorous, application-relevant comparison of modern Fourier transformation approaches, with emphasis on practical SOTA selection by scenario. The work will cover direct transform performance, inverse transform stability, batched throughput, and behavior under precision and size variation. The output is not a new transform theory, but a validated methodology and recommendation matrix for current best-performing approaches.\n\nConstraints: Results must be reproducible, hardware-annotated, and comparable across methods using consistent preprocessing, normalization, and measurement procedures. The benchmark should explicitly separate algorithmic effects from implementation/runtime effects. Claims will be limited to tested environments and clearly labeled by workload class to avoid overgeneralization.\n\nSuccess criteria: (1) A complete benchmark protocol with fixed data generation and split policy, (2) statistically stable performance and accuracy reports for each method, (3) scenario-specific SOTA recommendations with confidence intervals, and (4) public release of scripts/configs required to rerun experiments.\n\nDeliverables: a benchmark specification document, experiment scripts, result tables/plots, and a final recommendation matrix mapping workload constraints (latency, throughput, memory, precision tolerance) to preferred Fourier methods.\nProblem Type: Open Question\nDifficulty: Advanced\nDomain: Machine Learning\nOriginator: Marius-Constantin Dinu\nCompute Budget: 3\nTarget Deadline: 2026-03-18\nTags: fourier-transform, fft, signal-processing, benchmarking, reproducibility\nCategories: Machine Learning\nExpected Artifacts: Paper, Code\nRelated Links: Discrete Fourier Transform (DFT), Fast Fourier Transform (FFT), Short-Time Fourier Transform (STFT)\nDataset Links: None",
+  "root_run_id": "b5362065-2e2a-47fe-a2f7-c03bdc20080c",
+  "run_id": "b5362065-2e2a-47fe-a2f7-c03bdc20080c",
+  "session_id": "b5362065-2e2a-47fe-a2f7-c03bdc20080c",
+  "tags": [
+    "fourier-transform",
+    "fft",
+    "signal-processing",
+    "benchmarking",
+    "reproducibility"
+  ],
+  "target_deadline": "2026-03-18",
+  "title": "Benchmarking and Selecting State-of-the-Art Modern Fourier Transformation Methods",
+  "updated_at": "2026-03-15T19:07:20.757845+00:00"
+}

@@ -1,0 +1,96 @@
+{
+  "figures": [
+    "paper/figures/h2_selector_primary_panels.pdf",
+    "paper/figures/h2_policy_dominance_panels.pdf",
+    "paper/figures/h2_bound_calibration_panels.pdf",
+    "paper/figures/h2_assumption_counterexample_panels.pdf"
+  ],
+  "tables": [
+    "experiments/h2_selector_validation/output/tables/selector_metrics.csv",
+    "experiments/h2_selector_validation/output/tables/selector_ci_summary.csv",
+    "experiments/h2_selector_validation/output/tables/policy_class_dominance.csv",
+    "experiments/h2_selector_validation/output/tables/finite_sample_bound.csv",
+    "experiments/h2_selector_validation/output/tables/confirmatory_stratified_gain.csv",
+    "experiments/h2_selector_validation/output/tables/assumption_audit.csv",
+    "experiments/h2_selector_validation/output/tables/boundary_case_audit.csv"
+  ],
+  "datasets": [
+    "experiments/h2_selector_validation/output/data/runtime_samples.csv",
+    "experiments/h2_selector_validation/output/data/selector_choices.csv"
+  ],
+  "sympy_report": "experiments/h2_selector_validation/output/sympy/sympy_validation_report.md",
+  "pdf_readability": [
+    {
+      "path": "paper/figures/h2_selector_primary_panels.pdf",
+      "pages": 1,
+      "width": 1944,
+      "height": 540,
+      "has_text": true
+    },
+    {
+      "path": "paper/figures/h2_policy_dominance_panels.pdf",
+      "pages": 1,
+      "width": 1404,
+      "height": 540,
+      "has_text": true
+    },
+    {
+      "path": "paper/figures/h2_bound_calibration_panels.pdf",
+      "pages": 1,
+      "width": 1404,
+      "height": 540,
+      "has_text": true
+    },
+    {
+      "path": "paper/figures/h2_assumption_counterexample_panels.pdf",
+      "pages": 1,
+      "width": 1404,
+      "height": 540,
+      "has_text": true
+    }
+  ],
+  "confirmatory_analysis": {
+    "name": "regime_stratified_gain_check",
+    "path": "experiments/h2_selector_validation/output/tables/confirmatory_stratified_gain.csv",
+    "summary": "Stratified selector gain by dimension and size bucket to validate post-selection robustness."
+  },
+  "figure_captions": {
+    "paper/figures/h2_selector_primary_panels.pdf": {
+      "panels": [
+        "Panel A: mean constrained latency by prior profile with 95% CI.",
+        "Panel B: constrained regret versus global static policy with parity line.",
+        "Panel C: feasibility violation rate with bootstrap CI bars."
+      ],
+      "variables": "Latency in ms; regret in ms (selector minus global static); violation rate in [0,1].",
+      "takeaways": "Selector reduces latency and keeps regret near or below zero across tested profiles while maintaining low violations.",
+      "uncertainty": "Error bars use 95% bootstrap confidence intervals across seeds."
+    },
+    "paper/figures/h2_policy_dominance_panels.pdf": {
+      "panels": [
+        "Panel A: distribution of delta_global = RG - RZ.",
+        "Panel B: seed-level scatter of selector risk against global risk with parity line."
+      ],
+      "variables": "RZ and RG are mean per-seed risk estimates in ms.",
+      "takeaways": "Positive delta_global values support weak dominance and frequent strict dominance.",
+      "uncertainty": "Seed-wise variability visualized; numeric CI reported in policy_class_dominance.csv."
+    },
+    "paper/figures/h2_bound_calibration_panels.pdf": {
+      "panels": [
+        "Panel A: empirical regret versus theoretical bound with parity frontier.",
+        "Panel B: per-seed bound satisfaction rate against 95% target."
+      ],
+      "variables": "Regret and bound in ms; satisfaction rate in [0,1].",
+      "takeaways": "Empirical regret remains below theoretical bound for the majority of tested cells.",
+      "uncertainty": "Rates vary by seed and are accompanied by table-level variability stats."
+    },
+    "paper/figures/h2_assumption_counterexample_panels.pdf": {
+      "panels": [
+        "Panel A: per-check pass rate for theorem assumptions (finite sets, positive priors, non-empty feasibility).",
+        "Panel B: counterexample detection confusion matrix for strict vs weak/equality boundaries."
+      ],
+      "variables": "Pass rate in [0,1]; boundary classes for predicted/actual strict-dominance behavior.",
+      "takeaways": "Assumption checks remain high while boundary behavior is explicitly audited for counterexample handling.",
+      "uncertainty": "Pass-rate variability is seed-aggregated and matrix counts reflect detection variability across runs."
+    }
+  }
+}
