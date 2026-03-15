@@ -2,29 +2,24 @@
   "abstract": "Fourier transformation remains a core primitive in scientific computing, signal processing, and ML systems, but practical performance and accuracy depend heavily on algorithm and hardware choices. This project will build a reproducible benchmark framework to compare modern Fourier transformation implementations across representative workloads (1D/2D/3D, real/complex, varying sizes, and precision modes). We will evaluate both numerical fidelity and system-level efficiency to identify configuration-specific SOTA candidates rather than a one-size-fits-all winner. The expected impact is a decision guide and open benchmark suite that helps researchers and engineers select the best Fourier pipeline for their constraints.",
   "artifacts": [
     {
-      "kind": "github_repo",
-      "label": "GitHub Repo",
-      "uri": "https://github.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c"
-    },
-    {
       "kind": "paper_pdf",
       "label": "Paper PDF",
-      "uri": "https://raw.githubusercontent.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c/main/paper/main.pdf"
+      "uri": "https://raw.githubusercontent.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c/paper-v2/paper/main.pdf"
     },
     {
       "kind": "paper_thumbnail",
       "label": "Paper Thumbnail",
-      "uri": "https://raw.githubusercontent.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c/main/paper/thumbnail.png"
+      "uri": "https://raw.githubusercontent.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c/paper-v2/paper/thumbnail.png"
     },
     {
       "kind": "latex_sources",
       "label": "LaTeX Sources",
-      "uri": "https://github.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c/blob/main/paper/main.tex"
+      "uri": "https://github.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c/blob/paper-v2/paper/main.tex"
     },
     {
       "kind": "sources",
       "label": "Sources",
-      "uri": "https://github.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c/blob/main/sources/sources.json"
+      "uri": "https://github.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c/blob/paper-v2/sources/sources.json"
     }
   ],
   "artifacts_summary": "Writing presentation artifacts are complete: compile-verified manuscript (paper/main.tex -> paper/main.pdf), bibliography (paper/references.bib), equation usage map, four primary figure PDFs, core selector/dominance/bound/audit tables, and runtime/choice datasets. Retry repair addressed schema validation by ensuring semantic expectation acceptance criteria are populated.",
@@ -128,91 +123,91 @@
         "path": "packages/fft-policy-selector/src/fft_policy_selector/core.py",
         "sha256": "338b87a91650821887144a25b3b1ef0a97e6b185a4769ea4d9f068fa2712311f",
         "size_bytes": 8390,
-        "url": "https://raw.githubusercontent.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c/main/packages/fft-policy-selector/src/fft_policy_selector/core.py"
+        "url": "https://raw.githubusercontent.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c/paper-v2/packages/fft-policy-selector/src/fft_policy_selector/core.py"
       },
       {
         "kind": "other",
         "path": "packages/fft-policy-selector/src/fft_policy_selector/analysis.py",
         "sha256": "8d1216b6566f1d0daa8587012a6e659c3eb05091691ecdd3f5577d83b68aa579",
         "size_bytes": 4836,
-        "url": "https://raw.githubusercontent.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c/main/packages/fft-policy-selector/src/fft_policy_selector/analysis.py"
+        "url": "https://raw.githubusercontent.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c/paper-v2/packages/fft-policy-selector/src/fft_policy_selector/analysis.py"
       },
       {
         "kind": "other",
         "path": "packages/fft-policy-selector/src/fft_policy_selector/pipeline.py",
         "sha256": "02997190a957414b2216455fabd90ff9cf52ff0bd3492fbfbd9e130234eb1af3",
         "size_bytes": 2081,
-        "url": "https://raw.githubusercontent.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c/main/packages/fft-policy-selector/src/fft_policy_selector/pipeline.py"
+        "url": "https://raw.githubusercontent.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c/paper-v2/packages/fft-policy-selector/src/fft_policy_selector/pipeline.py"
       },
       {
         "kind": "other",
         "path": "packages/fft-policy-selector/src/fft_policy_selector/symbolic.py",
         "sha256": "fd9e09cb304e859580225d2a22efd555118dc0ca8d06c45d127a8b6774152109",
         "size_bytes": 2048,
-        "url": "https://raw.githubusercontent.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c/main/packages/fft-policy-selector/src/fft_policy_selector/symbolic.py"
+        "url": "https://raw.githubusercontent.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c/paper-v2/packages/fft-policy-selector/src/fft_policy_selector/symbolic.py"
       },
       {
         "kind": "other",
         "path": "packages/fft-policy-selector/tests/test_selector_pipeline.py",
         "sha256": "cb585507aedfdd0eacf266f0266caff577baaeb88b8640410d71c84eeee19dd3",
         "size_bytes": 1374,
-        "url": "https://raw.githubusercontent.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c/main/packages/fft-policy-selector/tests/test_selector_pipeline.py"
+        "url": "https://raw.githubusercontent.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c/paper-v2/packages/fft-policy-selector/tests/test_selector_pipeline.py"
       },
       {
         "kind": "other",
         "path": "packages/fft-policy-selector/examples/basic_usage.py",
         "sha256": "b3993a9d8060fc92a35bbbe02b875e6dfcbf60105c6cfbe5ed0f4c8da42461c0",
         "size_bytes": 1070,
-        "url": "https://raw.githubusercontent.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c/main/packages/fft-policy-selector/examples/basic_usage.py"
+        "url": "https://raw.githubusercontent.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c/paper-v2/packages/fft-policy-selector/examples/basic_usage.py"
       },
       {
         "kind": "other",
         "path": "packages/fft-policy-selector/packaging_manifest.json",
         "sha256": "3ef6bdc0ddb187d39716e9ba705423ae41f9a58ba16bc7fb83fa6a938799cd13",
         "size_bytes": 7705,
-        "url": "https://raw.githubusercontent.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c/main/packages/fft-policy-selector/packaging_manifest.json"
+        "url": "https://raw.githubusercontent.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c/paper-v2/packages/fft-policy-selector/packaging_manifest.json"
       },
       {
         "kind": "other",
         "path": "packages/fft-policy-selector/README.md",
         "sha256": "7a6755468e5942c918d3d539c90f667b60107e309ef684a37d20d7f594480b5c",
         "size_bytes": 2686,
-        "url": "https://raw.githubusercontent.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c/main/packages/fft-policy-selector/README.md"
+        "url": "https://raw.githubusercontent.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c/paper-v2/packages/fft-policy-selector/README.md"
       },
       {
         "kind": "other",
         "path": "packages/fft-policy-selector/requirements.txt",
         "sha256": "9bba3add0902a75ecf69393ec11ee91083f00d37be8d7a4f8444accf8680c092",
         "size_bytes": 691,
-        "url": "https://raw.githubusercontent.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c/main/packages/fft-policy-selector/requirements.txt"
+        "url": "https://raw.githubusercontent.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c/paper-v2/packages/fft-policy-selector/requirements.txt"
       },
       {
         "kind": "other",
         "path": "packages/fft-policy-selector/dependency_graph.json",
         "sha256": "f9f512749a84d9ac0c2790de11fec7ea12dbd29b781940beb1bb8ef3cce75277",
         "size_bytes": 2612,
-        "url": "https://raw.githubusercontent.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c/main/packages/fft-policy-selector/dependency_graph.json"
+        "url": "https://raw.githubusercontent.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c/paper-v2/packages/fft-policy-selector/dependency_graph.json"
       },
       {
         "kind": "wheel",
         "path": "packages/fft-policy-selector/dist/omegaxiv_fft_policy_selector-0.1.0-py3-none-any.whl",
         "sha256": "0793ce9d1b5186e738bb8cb353fcec533e6ed88910c73cee8a74b5ecc63929c1",
         "size_bytes": 9085,
-        "url": "https://raw.githubusercontent.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c/main/packages/fft-policy-selector/dist/omegaxiv_fft_policy_selector-0.1.0-py3-none-any.whl"
+        "url": "https://raw.githubusercontent.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c/paper-v2/packages/fft-policy-selector/dist/omegaxiv_fft_policy_selector-0.1.0-py3-none-any.whl"
       },
       {
         "kind": "sdist",
         "path": "packages/fft-policy-selector/dist/omegaxiv_fft_policy_selector-0.1.0.tar.gz",
         "sha256": "49cfd3115fd7d477b3385f98d9e840cfbb6110afbb1ef8abcc4cc4a4ef968f30",
         "size_bytes": 8649,
-        "url": "https://raw.githubusercontent.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c/main/packages/fft-policy-selector/dist/omegaxiv_fft_policy_selector-0.1.0.tar.gz"
+        "url": "https://raw.githubusercontent.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c/paper-v2/packages/fft-policy-selector/dist/omegaxiv_fft_policy_selector-0.1.0.tar.gz"
       },
       {
         "kind": "other",
         "path": "packages/fft-policy-selector/pyproject.toml",
         "sha256": null,
         "size_bytes": 590,
-        "url": "https://raw.githubusercontent.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c/main/packages/fft-policy-selector/pyproject.toml"
+        "url": "https://raw.githubusercontent.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c/paper-v2/packages/fft-policy-selector/pyproject.toml"
       }
     ],
     "dependencies": [
@@ -297,7 +292,7 @@
     ],
     "dependency_graph_mermaid": "graph TD\n  omegaxiv_fft_policy_selector[\"omegaxiv-fft-policy-selector\"] --> numpy\n  omegaxiv_fft_policy_selector --> pandas\n  omegaxiv_fft_policy_selector --> sympy\n  pandas --> python_dateutil[\"python-dateutil\"]\n  pandas --> pytz\n  pandas --> tzdata\n  python_dateutil --> six\n  sympy --> mpmath",
     "dependency_graph_path": "packages/fft-policy-selector/dependency_graph.json",
-    "dependency_graph_url": "https://raw.githubusercontent.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c/main/packages/fft-policy-selector/dependency_graph.json",
+    "dependency_graph_url": "https://raw.githubusercontent.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c/paper-v2/packages/fft-policy-selector/dependency_graph.json",
     "distribution_name": "omegaxiv-fft-policy-selector",
     "handle": "fft-policy-selector",
     "handle_alternatives": [
@@ -308,14 +303,18 @@
     "handle_confirmed": true,
     "import_name": "fft_policy_selector",
     "install_command": "pip install omegaxiv && ox install fft-policy-selector==0.1.0",
+    "install_ready": true,
     "install_target": "packages/fft-policy-selector/dist/omegaxiv_fft_policy_selector-0.1.0-py3-none-any.whl",
     "manager_install_command": "pip install omegaxiv",
     "manifest_path": "packages/fft-policy-selector/packaging_manifest.json",
     "package_type": "library",
     "readme_path": "packages/fft-policy-selector/README.md",
-    "readme_url": "https://raw.githubusercontent.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c/main/packages/fft-policy-selector/README.md",
+    "readme_url": "https://raw.githubusercontent.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c/paper-v2/packages/fft-policy-selector/README.md",
+    "registry_index_url": "https://raw.githubusercontent.com/omegaXiv-labs/omegaxiv-registry/main/packages/index.json",
+    "registry_record_url": "https://raw.githubusercontent.com/omegaXiv-labs/omegaxiv-registry/main/handles/fft-policy-selector.json",
+    "registry_status": "synced",
     "requirements_path": "packages/fft-policy-selector/requirements.txt",
-    "requirements_url": "https://raw.githubusercontent.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c/main/packages/fft-policy-selector/requirements.txt",
+    "requirements_url": "https://raw.githubusercontent.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c/paper-v2/packages/fft-policy-selector/requirements.txt",
     "version": "0.1.0"
   },
   "paper_pdf_url": "https://raw.githubusercontent.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c/main/paper/main.pdf",
@@ -330,11 +329,14 @@
     "Fast Fourier Transform (FFT)",
     "Short-Time Fourier Transform (STFT)"
   ],
+  "repo_commit_sha": "5386b35dcceaadd10a7bd05f34ebdbbcb16ff670",
+  "repo_ref": "paper-v2",
   "repo_url": "https://github.com/omegaXiv-labs/omegaXiv-run-b5362065-2e2a-47fe-a2f7-c03bdc20080c",
   "request_text": "Title: Benchmarking and Selecting State-of-the-Art Modern Fourier Transformation Methods\nAbstract: Fourier transformation remains a core primitive in scientific computing, signal processing, and ML systems, but practical performance and accuracy depend heavily on algorithm and hardware choices. This project will build a reproducible benchmark framework to compare modern Fourier transformation implementations across representative workloads (1D/2D/3D, real/complex, varying sizes, and precision modes). We will evaluate both numerical fidelity and system-level efficiency to identify configuration-specific SOTA candidates rather than a one-size-fits-all winner. The expected impact is a decision guide and open benchmark suite that helps researchers and engineers select the best Fourier pipeline for their constraints.\nFull Description: Scope: This submission targets rigorous, application-relevant comparison of modern Fourier transformation approaches, with emphasis on practical SOTA selection by scenario. The work will cover direct transform performance, inverse transform stability, batched throughput, and behavior under precision and size variation. The output is not a new transform theory, but a validated methodology and recommendation matrix for current best-performing approaches.\n\nConstraints: Results must be reproducible, hardware-annotated, and comparable across methods using consistent preprocessing, normalization, and measurement procedures. The benchmark should explicitly separate algorithmic effects from implementation/runtime effects. Claims will be limited to tested environments and clearly labeled by workload class to avoid overgeneralization.\n\nSuccess criteria: (1) A complete benchmark protocol with fixed data generation and split policy, (2) statistically stable performance and accuracy reports for each method, (3) scenario-specific SOTA recommendations with confidence intervals, and (4) public release of scripts/configs required to rerun experiments.\n\nDeliverables: a benchmark specification document, experiment scripts, result tables/plots, and a final recommendation matrix mapping workload constraints (latency, throughput, memory, precision tolerance) to preferred Fourier methods.\nProblem Type: Open Question\nDifficulty: Advanced\nDomain: Machine Learning\nOriginator: Marius-Constantin Dinu\nCompute Budget: 3\nTarget Deadline: 2026-03-18\nTags: fourier-transform, fft, signal-processing, benchmarking, reproducibility\nCategories: Machine Learning\nExpected Artifacts: Paper, Code\nRelated Links: Discrete Fourier Transform (DFT), Fast Fourier Transform (FFT), Short-Time Fourier Transform (STFT)\nDataset Links: None",
   "root_run_id": "b5362065-2e2a-47fe-a2f7-c03bdc20080c",
   "run_id": "3c01e50d-170a-4b91-b0de-175023864aa8",
   "session_id": "b5362065-2e2a-47fe-a2f7-c03bdc20080c",
+  "snapshot_branch": "snapshot/paper-v2",
   "tags": [
     "fourier-transform",
     "fft",
@@ -344,5 +346,6 @@
   ],
   "target_deadline": "2026-03-18",
   "title": "Benchmarking and Selecting State-of-the-Art Modern Fourier Transformation Methods",
-  "updated_at": "2026-03-15T19:41:35.625529+00:00"
+  "updated_at": "2026-03-15T19:41:35.625529+00:00",
+  "version": 2
 }
