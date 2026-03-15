@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "omegaxiv-fft-policy-selector"
+version = "0.1.0"
+description = "Scenario-conditioned Fourier policy selector extracted from omegaXiv validation methodology."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "numpy>=1.24,<3",
+  "pandas>=2.0,<3",
+  "sympy>=1.12,<2"
+]
+
+[project.urls]
+Homepage = "https://omegaxiv.org"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

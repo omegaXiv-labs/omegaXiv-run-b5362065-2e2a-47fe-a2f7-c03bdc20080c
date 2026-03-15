@@ -10,7 +10,7 @@
     "code/experiment_config.yaml",
     "code/test_core.py"
   ],
-  "created_at": "2026-03-15T19:26:29.193882+00:00",
+  "created_at": "2026-03-15T20:00:25.428879+00:00",
   "paper": {
     "bibtex": "paper/references.bib",
     "latex": "paper/main.tex",
@@ -18,15 +18,12 @@
     "thumbnail": "paper/thumbnail.png"
   },
   "phases": [
-    "derive_math_methodology",
-    "experiment_design",
     "hypothesis_methodology",
     "insights_refinement",
     "knowledge_acquisition",
     "knowledge_distillation",
-    "literature_review",
+    "packaging_release",
     "review_feedback",
-    "revision",
     "user_input",
     "user_presentation",
     "validation_simulation",
