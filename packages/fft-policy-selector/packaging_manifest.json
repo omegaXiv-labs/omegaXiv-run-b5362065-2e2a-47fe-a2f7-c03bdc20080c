@@ -1,0 +1,235 @@
+{
+  "handle": "fft-policy-selector",
+  "handle_confirmed": true,
+  "version": "0.1.0",
+  "package_type": "library",
+  "distribution_name": "omegaxiv-fft-policy-selector",
+  "import_name": "fft_policy_selector",
+  "install_target": "packages/fft-policy-selector/dist/omegaxiv_fft_policy_selector-0.1.0-py3-none-any.whl",
+  "install_command": "pip install omegaxiv && ox install fft-policy-selector==0.1.0",
+  "readme_path": "packages/fft-policy-selector/README.md",
+  "requirements_path": "packages/fft-policy-selector/requirements.txt",
+  "dependency_graph_path": "packages/fft-policy-selector/dependency_graph.json",
+  "core_exports": [
+    {
+      "source_path": "experiments/h2_selector_validation/src/h2exp/core.py",
+      "source_symbol": "selector_policy",
+      "exported_module": "fft_policy_selector.core",
+      "exported_symbol": "selector_policy",
+      "rationale": "Primary feasibility-aware scenario-conditioned selector implementation from validated core contribution C1."
+    },
+    {
+      "source_path": "experiments/h2_selector_validation/src/h2exp/core.py",
+      "source_symbol": "aggregate_metrics",
+      "exported_module": "fft_policy_selector.core",
+      "exported_symbol": "aggregate_metrics",
+      "rationale": "Core performance aggregation logic required to compute constrained regret and feasibility outcomes."
+    },
+    {
+      "source_path": "experiments/h2_selector_validation/src/h2exp/analysis.py",
+      "source_symbol": "policy_class_dominance",
+      "exported_module": "fft_policy_selector.analysis",
+      "exported_symbol": "policy_class_dominance",
+      "rationale": "Direct implementation of selector-vs-global policy-class dominance analysis used for contribution C2."
+    },
+    {
+      "source_path": "experiments/h2_selector_validation/src/h2exp/analysis.py",
+      "source_symbol": "finite_sample_bound",
+      "exported_module": "fft_policy_selector.analysis",
+      "exported_symbol": "finite_sample_bound",
+      "rationale": "Direct implementation of finite-sample robust bound diagnostics used for contribution C3."
+    },
+    {
+      "source_path": "experiments/h2_selector_validation/src/h2exp/sympy_checks.py",
+      "source_symbol": "run_sympy_checks",
+      "exported_module": "fft_policy_selector.symbolic",
+      "exported_symbol": "run_sympy_checks",
+      "rationale": "Extracted symbolic validation routine for decomposition, dominance implication, and monotonic radius checks."
+    }
+  ],
+  "dependencies": [
+    {
+      "name": "numpy",
+      "spec": ">=1.24,<3",
+      "source": "runtime",
+      "transitive": false,
+      "required_by": [
+        "omegaxiv-fft-policy-selector",
+        "fft_policy_selector.core",
+        "fft_policy_selector.analysis"
+      ]
+    },
+    {
+      "name": "pandas",
+      "spec": ">=2.0,<3",
+      "source": "runtime",
+      "transitive": false,
+      "required_by": [
+        "omegaxiv-fft-policy-selector",
+        "fft_policy_selector.core",
+        "fft_policy_selector.analysis",
+        "fft_policy_selector.pipeline"
+      ]
+    },
+    {
+      "name": "sympy",
+      "spec": ">=1.12,<2",
+      "source": "runtime",
+      "transitive": false,
+      "required_by": [
+        "omegaxiv-fft-policy-selector",
+        "fft_policy_selector.symbolic"
+      ]
+    },
+    {
+      "name": "python-dateutil",
+      "spec": ">=2.9.0",
+      "source": "runtime",
+      "transitive": true,
+      "required_by": [
+        "pandas"
+      ]
+    },
+    {
+      "name": "pytz",
+      "spec": ">=2026.1",
+      "source": "runtime",
+      "transitive": true,
+      "required_by": [
+        "pandas"
+      ]
+    },
+    {
+      "name": "tzdata",
+      "spec": ">=2025.3",
+      "source": "runtime",
+      "transitive": true,
+      "required_by": [
+        "pandas"
+      ]
+    },
+    {
+      "name": "six",
+      "spec": ">=1.17.0",
+      "source": "runtime",
+      "transitive": true,
+      "required_by": [
+        "python-dateutil"
+      ]
+    },
+    {
+      "name": "mpmath",
+      "spec": ">=1.3.0",
+      "source": "runtime",
+      "transitive": true,
+      "required_by": [
+        "sympy"
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "kind": "other",
+      "path": "packages/fft-policy-selector/EXTRACTION_PLAN.md",
+      "sha256": "1ed6a9ddc8cb7d9a12fdefc55646d2e8a29736cc8da08b772ec32cfb17e2d34a",
+      "size_bytes": 1282,
+      "url": null
+    },
+    {
+      "kind": "other",
+      "path": "packages/fft-policy-selector/README.md",
+      "sha256": "7a6755468e5942c918d3d539c90f667b60107e309ef684a37d20d7f594480b5c",
+      "size_bytes": 2686,
+      "url": null
+    },
+    {
+      "kind": "other",
+      "path": "packages/fft-policy-selector/requirements.txt",
+      "sha256": "9bba3add0902a75ecf69393ec11ee91083f00d37be8d7a4f8444accf8680c092",
+      "size_bytes": 691,
+      "url": null
+    },
+    {
+      "kind": "other",
+      "path": "packages/fft-policy-selector/pyproject.toml",
+      "sha256": "d23a694b3097b89620f905448283133493e09b41603a2006653c3ca2e6131293",
+      "size_bytes": 590,
+      "url": null
+    },
+    {
+      "kind": "other",
+      "path": "packages/fft-policy-selector/dependency_graph.json",
+      "sha256": "f9f512749a84d9ac0c2790de11fec7ea12dbd29b781940beb1bb8ef3cce75277",
+      "size_bytes": 2612,
+      "url": null
+    },
+    {
+      "kind": "other",
+      "path": "packages/fft-policy-selector/src/fft_policy_selector/__init__.py",
+      "sha256": "f9c05123ed22faa61c0c32f7aa9b512d8ac80752d8b7d3778c1e8dd64c03e31b",
+      "size_bytes": 862,
+      "url": null
+    },
+    {
+      "kind": "other",
+      "path": "packages/fft-policy-selector/src/fft_policy_selector/core.py",
+      "sha256": "338b87a91650821887144a25b3b1ef0a97e6b185a4769ea4d9f068fa2712311f",
+      "size_bytes": 8390,
+      "url": null
+    },
+    {
+      "kind": "other",
+      "path": "packages/fft-policy-selector/src/fft_policy_selector/analysis.py",
+      "sha256": "8d1216b6566f1d0daa8587012a6e659c3eb05091691ecdd3f5577d83b68aa579",
+      "size_bytes": 4836,
+      "url": null
+    },
+    {
+      "kind": "other",
+      "path": "packages/fft-policy-selector/src/fft_policy_selector/pipeline.py",
+      "sha256": "02997190a957414b2216455fabd90ff9cf52ff0bd3492fbfbd9e130234eb1af3",
+      "size_bytes": 2081,
+      "url": null
+    },
+    {
+      "kind": "other",
+      "path": "packages/fft-policy-selector/src/fft_policy_selector/symbolic.py",
+      "sha256": "fd9e09cb304e859580225d2a22efd555118dc0ca8d06c45d127a8b6774152109",
+      "size_bytes": 2048,
+      "url": null
+    },
+    {
+      "kind": "other",
+      "path": "packages/fft-policy-selector/tests/test_selector_pipeline.py",
+      "sha256": "cb585507aedfdd0eacf266f0266caff577baaeb88b8640410d71c84eeee19dd3",
+      "size_bytes": 1374,
+      "url": null
+    },
+    {
+      "kind": "other",
+      "path": "packages/fft-policy-selector/examples/basic_usage.py",
+      "sha256": "b3993a9d8060fc92a35bbbe02b875e6dfcbf60105c6cfbe5ed0f4c8da42461c0",
+      "size_bytes": 1070,
+      "url": null
+    },
+    {
+      "kind": "wheel",
+      "path": "packages/fft-policy-selector/dist/omegaxiv_fft_policy_selector-0.1.0-py3-none-any.whl",
+      "sha256": "0793ce9d1b5186e738bb8cb353fcec533e6ed88910c73cee8a74b5ecc63929c1",
+      "size_bytes": 9085,
+      "url": null
+    },
+    {
+      "kind": "sdist",
+      "path": "packages/fft-policy-selector/dist/omegaxiv_fft_policy_selector-0.1.0.tar.gz",
+      "sha256": "49cfd3115fd7d477b3385f98d9e840cfbb6110afbb1ef8abcc4cc4a4ef968f30",
+      "size_bytes": 8649,
+      "url": null
+    }
+  ],
+  "extraction_plan_path": "packages/fft-policy-selector/EXTRACTION_PLAN.md",
+  "generated_from": {
+    "validation_source": "experiments/h2_selector_validation/src/h2exp",
+    "review_decision": "approve_with_warnings"
+  }
+}

@@ -1,0 +1,26 @@
+experiment_id: h2_selector_validation
+selected_path_id: UP2_selector_matrix_first
+target_hypothesis_ids:
+  - H2_scenario_conditioned_selector
+baselines:
+  - global_winner_static_policy
+  - per_dimension_static_policy
+  - unconstrained_latency_argmin
+  - confidence_unaware_feasible_selector
+  - random_feasible_policy
+seeds: [7, 17, 29, 53, 89, 131]
+metrics:
+  - constrained_expected_latency_ms
+  - constrained_regret_ms_vs_global
+  - feasibility_violation_rate
+  - selector_coverage_rate
+  - ci95_width_latency_ms
+  - winner_stability_jaccard
+sweep_params:
+  dimension: ["1d", "2d", "3d"]
+  domain_type: ["real", "complex"]
+  size_bucket: ["small", "medium", "large", "xlarge"]
+  batch_size: [1, 8, 32, 128]
+  epsilon_scale: [0.5, 1.0, 2.0]
+  memory_budget_scale: [0.8, 1.0, 1.2]
+  scenario_prior_profile: ["uniform", "inference_heavy", "hpc_3d_heavy"]

@@ -1,0 +1,95 @@
+# FFT Policy Selector
+
+## Overview
+
+`fft-policy-selector` is a reusable library package that extracts the scenario-conditioned Fourier policy selection method from the omegaXiv validation workflow. It provides a clean Python API for:
+
+- generating benchmark scenarios,
+- selecting feasible low-latency methods per scenario,
+- aggregating selector performance metrics,
+- analyzing policy-class dominance and finite-sample bounds.
+
+The package exposes core implementation symbols (for example `selector_policy` and `finite_sample_bound`) plus a high-level `ScenarioConditionedSelector` pipeline.
+
+## Installation
+
+Canonical user flow:
+
+1. `pip install omegaxiv`
+2. `ox install fft-policy-selector==0.1.0`
+
+Maintainer/dev-only install paths:
+
+- From repository subdirectory:
+  - `pip install -e packages/fft-policy-selector`
+- From built wheel artifact:
+  - `pip install packages/fft-policy-selector/dist/omegaxiv_fft_policy_selector-0.1.0-py3-none-any.whl`
+
+## Configuration
+
+The pipeline expects a benchmark-style config mapping containing:
+
+- `sweep_params.dimension`
+- `sweep_params.domain_type`
+- `sweep_params.size_bucket`
+- `sweep_params.batch_size`
+- `sweep_params.epsilon_scale`
+- `sweep_params.memory_budget_scale`
+- `sweep_params.scenario_prior_profile`
+
+Instantiate the selector with:
+
+- `baselines`: list of baseline method names,
+- `seeds`: deterministic integer seeds.
+
+## Usage Examples
+
+Minimal pipeline run:
+
+```python
+from fft_policy_selector import ScenarioConditionedSelector
+
+selector = ScenarioConditionedSelector(
+    baselines=[
+        "global_winner_static_policy",
+        "per_dimension_static_policy",
+        "unconstrained_latency_argmin",
+        "confidence_unaware_feasible_selector",
+        "random_feasible_policy",
+    ],
+    seeds=[7, 17],
+)
+
+config = {
+    "sweep_params": {
+        "dimension": ["1d"],
+        "domain_type": ["real"],
+        "size_bucket": ["small"],
+        "batch_size": [1],
+        "epsilon_scale": [1.0],
+        "memory_budget_scale": [1.0],
+        "scenario_prior_profile": ["uniform"],
+    }
+}
+
+outputs = selector.run(config)
+print(outputs.selector_metrics.head())
+```
+
+Direct use of extracted core symbol:
+
+```python
+from fft_policy_selector import selector_policy
+
+selector_df = selector_policy(outputs.runtime)
+print(selector_df.head())
+```
+
+## Troubleshooting
+
+- `ModuleNotFoundError: fft_policy_selector`
+  - Verify installation completed in the active environment and rerun import checks.
+- Empty metrics output
+  - Ensure at least one scenario and one seed are provided.
+- Unexpected fallback activation rate
+  - Check your `epsilon_scale` and `memory_budget_scale`; tighter constraints increase fallback usage.

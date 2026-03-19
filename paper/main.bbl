@@ -1,0 +1,212 @@
+\begin{thebibliography}{36}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Ayala et~al.(2019)]{S08}
+Alan Ayala et~al.
+\newblock Impacts of multi-gpu mpi collective communications on large fft
+  computation, 2019.
+\newblock URL \url{https://doi.org/10.1109/ExaMPI49596.2019.00007}.
+
+\bibitem[Ayala et~al.(2020)]{S09}
+Alan Ayala et~al.
+\newblock heffte: Highly efficient fft for exascale, 2020.
+\newblock URL \url{https://doi.org/10.1007/978-3-030-50371-0_19}.
+
+\bibitem[Ayala et~al.(2022)]{S42}
+Alan Ayala et~al.
+\newblock Performance analysis of parallel fft on large multi-gpu systems,
+  2022.
+\newblock URL \url{https://doi.org/10.1109/IPDPSW55747.2022.00072}.
+
+\bibitem[Barnett et~al.(2019)]{S12}
+Alex~H. Barnett et~al.
+\newblock A parallel non-uniform fast fourier transform library based on an
+  exponential of semicircle kernel, 2019.
+\newblock URL \url{https://doi.org/10.1137/18M1208851}.
+
+\bibitem[Chilingaryan et~al.(2015)]{S21}
+Suren Chilingaryan et~al.
+\newblock Benchmark for fft libraries, 2015.
+\newblock URL \url{https://doi.org/10.4028/www.scientific.net/AMM.756.673}.
+
+\bibitem[contributors(2026{\natexlab{a}})]{S33}
+Flatiron~Institute contributors.
+\newblock Finufft github repository, 2026{\natexlab{a}}.
+\newblock URL \url{https://github.com/flatironinstitute/finufft}.
+
+\bibitem[contributors(2026{\natexlab{b}})]{S34}
+Flatiron~Institute contributors.
+\newblock cufinufft github repository, 2026{\natexlab{b}}.
+\newblock URL \url{https://github.com/flatironinstitute/cufinufft}.
+
+\bibitem[Cooley et~al.(1965)]{S01}
+J.~W. Cooley et~al.
+\newblock An algorithm for the machine calculation of complex fourier series,
+  1965.
+\newblock URL \url{https://doi.org/10.1090/S0025-5718-1965-0178586-1}.
+
+\bibitem[Czechowski et~al.(2012)]{S07}
+Krzysztof Czechowski et~al.
+\newblock On the communication complexity of 3d ffts and its implications for
+  exascale, 2012.
+\newblock URL \url{https://doi.org/10.1145/2304576.2304604}.
+
+\bibitem[Fessler et~al.(2003)]{S13}
+Jeffrey~A. Fessler et~al.
+\newblock Nonuniform fast fourier transforms using min-max interpolation, 2003.
+\newblock URL \url{https://doi.org/10.1109/TSP.2002.807005}.
+
+\bibitem[Frigo et~al.(1998)]{S02}
+Matteo Frigo et~al.
+\newblock Fftw: An adaptive software architecture for the fft, 1998.
+\newblock URL \url{https://doi.org/10.1109/ICASSP.1998.681704}.
+
+\bibitem[Frigo et~al.(2005)]{S03}
+Matteo Frigo et~al.
+\newblock The design and implementation of fftw3, 2005.
+\newblock URL \url{https://doi.org/10.1109/JPROC.2004.840301}.
+
+\bibitem[Fu et~al.(2023{\natexlab{a}})]{S19}
+Daniel~Y. Fu et~al.
+\newblock Monarch mixer: A simple sub-quadratic gemm-based architecture,
+  2023{\natexlab{a}}.
+\newblock URL \url{https://doi.org/10.48550/arXiv.2310.12109}.
+
+\bibitem[Fu et~al.(2023{\natexlab{b}})]{S20}
+Daniel~Y. Fu et~al.
+\newblock Flashfftconv: Efficient convolutions for long sequences with tensor
+  cores, 2023{\natexlab{b}}.
+\newblock URL \url{https://doi.org/10.48550/arXiv.2311.05908}.
+
+\bibitem[Intel(2022)]{S27}
+Intel.
+\newblock Intel onemkl dft functionality reference, 2022.
+\newblock URL
+  \url{https://www.intel.com/content/www/us/en/docs/onemkl/developer-reference-dpcpp/2023-0/dft-functionality.html}.
+
+\bibitem[Intel(2026)]{S28}
+Intel.
+\newblock Intel onemkl release notes, 2026.
+\newblock URL
+  \url{https://www.intel.com/content/www/us/en/developer/articles/release-notes/onemkl-release-notes.html}.
+
+\bibitem[Keiner et~al.(2013)]{S14}
+J.~Keiner et~al.
+\newblock Nfft 3: A software library for various nonequispaced fast fourier
+  transforms, 2013.
+\newblock URL \url{https://doi.org/10.1145/2504435.2504438}.
+
+\bibitem[Lee-Thorp et~al.(2021)]{S16}
+James Lee-Thorp et~al.
+\newblock Fnet: Mixing tokens with fourier transforms, 2021.
+\newblock URL \url{https://doi.org/10.48550/arXiv.2105.03824}.
+
+\bibitem[Li et~al.(2024)]{S40}
+Qing Li et~al.
+\newblock Research on high-performance fourier transform algorithms based on
+  the npu, 2024.
+\newblock URL \url{https://www.mdpi.com/2076-3417/14/1/405}.
+
+\bibitem[Li et~al.(2021)]{S15}
+Zongyi Li et~al.
+\newblock Fourier neural operator for parametric partial differential
+  equations, 2021.
+\newblock URL \url{https://doi.org/10.48550/arXiv.2010.08895}.
+
+\bibitem[Lu et~al.(2025)]{S39}
+Lu~Lu et~al.
+\newblock Design and optimization of high-performance multi-dimensional fft
+  based on matrix core, 2025.
+\newblock URL
+  \url{https://www.sciopen.com/article/10.12141/j.issn.1000-565X.240035}.
+
+\bibitem[Nussbaumer et~al.(1990)]{S22}
+Henri~J. Nussbaumer et~al.
+\newblock Fast fourier transforms: A tutorial review and a state of the art,
+  1990.
+\newblock URL \url{https://doi.org/10.1016/0165-1684(90)90158-U}.
+
+\bibitem[NVIDIA(2026)]{S25}
+NVIDIA.
+\newblock cufft 13.2 documentation, 2026.
+\newblock URL \url{https://docs.nvidia.com/cuda/cufft/}.
+
+\bibitem[Pekurovsky(2012)]{S06}
+Dmitry Pekurovsky.
+\newblock P3dfft: A framework for parallel computations of fourier transforms
+  in three dimensions, 2012.
+\newblock URL \url{https://doi.org/10.1137/11082748X}.
+
+\bibitem[Poli et~al.(2023)]{S18}
+Michael Poli et~al.
+\newblock Hyena hierarchy: Towards larger convolutional language models, 2023.
+\newblock URL \url{https://doi.org/10.48550/arXiv.2302.10866}.
+
+\bibitem[Popov et~al.(2024)]{S36}
+A.~Y. Popov et~al.
+\newblock 3d dft by block tensor-matrix multiplication via a modified cannon's
+  algorithm: Implementation and scaling on distributed-memory clusters with fat
+  tree networks, 2024.
+\newblock URL
+  \url{https://www.sciencedirect.com/science/article/pii/S0743731524001096}.
+
+\bibitem[project contributors(2026)]{S35}
+SPIRAL project contributors.
+\newblock Spiral software github repository, 2026.
+\newblock URL \url{https://github.com/spiral-software/spiral-software}.
+
+\bibitem[Puschel et~al.(2004)]{S04}
+Markus Puschel et~al.
+\newblock Spiral: A generator for platform-adapted libraries of signal
+  processing algorithms, 2004.
+\newblock URL \url{https://doi.org/10.1177/1094342004041291}.
+
+\bibitem[Puschel et~al.(2005)]{S05}
+Markus Puschel et~al.
+\newblock Spiral: Code generation for dsp transforms, 2005.
+\newblock URL \url{https://doi.org/10.1109/JPROC.2004.840306}.
+
+\bibitem[Rao et~al.(2023)]{S11}
+Sanil Rao et~al.
+\newblock Fftx-iris: Towards performance portability and heterogeneity for
+  spiral generated code, 2023.
+\newblock URL \url{https://doi.org/10.1145/3624062.3624242}.
+
+\bibitem[Sorensen et~al.(1998)]{S23}
+H.~V. Sorensen et~al.
+\newblock Fft algorithms and their adaptation to parallel processing, 1998.
+\newblock URL \url{https://doi.org/10.1016/S0024-3795(98)10086-1}.
+
+\bibitem[Team(2026)]{S26}
+AMD~ROCm Team.
+\newblock rocfft documentation (rocm 7.2.0), 2026.
+\newblock URL \url{https://rocm.docs.amd.com/projects/rocFFT/en/latest/}.
+
+\bibitem[Tolmachev(2023)]{S10}
+Dmitrii Tolmachev.
+\newblock Vkfft - a performant, cross-platform and open-source gpu fft library,
+  2023.
+\newblock URL \url{https://doi.org/10.1109/ACCESS.2023.3242240}.
+
+\bibitem[Tolmachev \& contributors(2026)Tolmachev and contributors]{S31}
+Dmitrii Tolmachev and contributors.
+\newblock Vkfft github repository, 2026.
+\newblock URL \url{https://github.com/DTolm/VkFFT}.
+
+\bibitem[Yeung et~al.(2024)]{S37}
+P.~K. Yeung et~al.
+\newblock Gpu-enabled extreme-scale turbulence simulations: Fourier
+  pseudo-spectral algorithms at the exascale using openmp offloading, 2024.
+\newblock URL \url{https://www.osti.gov/biblio/2498458}.
+
+\bibitem[Zhao et~al.(2023)]{S41}
+Yuwen Zhao et~al.
+\newblock Mfft: A gpu accelerated highly efficient mixed-precision large-scale
+  fft framework, 2023.
+\newblock URL \url{https://dl.acm.org/doi/10.1145/3605148}.
+
+\end{thebibliography}

@@ -1,0 +1,1450 @@
+[
+  {
+    "assumptions": [
+      "Input length can be recursively factored (especially powers of two).",
+      "Complex arithmetic cost model is dominant in runtime analysis."
+    ],
+    "authors": [
+      "J. W. Cooley",
+      "J. W. Tukey"
+    ],
+    "citation": "S01",
+    "claims": [
+      "Recursive factorization drastically reduces arithmetic operation count versus direct DFT."
+    ],
+    "conclusions": [
+      "FFT is a practical algorithmic primitive for large transform workloads."
+    ],
+    "contributions": [
+      "Formalized recursive decomposition of DFT into smaller DFTs.",
+      "Established asymptotic speedup foundation for modern FFT software/hardware."
+    ],
+    "future_work": [
+      "Algorithm variants for mixed radices and architecture-aware implementations."
+    ],
+    "key_equations": [
+      "X_k=\\sum_{n=0}^{N-1} x_n e^{-2\\pi i kn/N}",
+      "T(N)=2T(N/2)+O(N)\\Rightarrow O(N\\log N)"
+    ],
+    "limitations": [
+      "Operation-count analysis does not model modern cache/memory hierarchy effects."
+    ],
+    "source_type": "paper",
+    "summary": "Introduced the radix-2 divide-and-conquer FFT formulation that reduced DFT complexity from quadratic to near-linearithmic and enabled practical spectral computing.",
+    "title": "An Algorithm for the Machine Calculation of Complex Fourier Series",
+    "url": "https://doi.org/10.1090/S0025-5718-1965-0178586-1",
+    "year": 1965
+  },
+  {
+    "assumptions": [
+      "Planner overhead can be amortized across repeated transform calls.",
+      "Microarchitecture-specific tuning materially impacts runtime."
+    ],
+    "authors": [
+      "Matteo Frigo",
+      "Steven G. Johnson"
+    ],
+    "citation": "S02",
+    "claims": [
+      "Self-optimizing planning usually outperforms generic/public FFT implementations."
+    ],
+    "conclusions": [
+      "Empirical tuning is essential for FFT performance portability."
+    ],
+    "contributions": [
+      "Introduced codelets and planning search over decomposition trees.",
+      "Demonstrated architecture-adaptive performance gains."
+    ],
+    "future_work": [
+      "Broader SIMD and multicore-aware planner strategies."
+    ],
+    "key_equations": [
+      "\\operatorname{DFT}(x)_k=\\sum_{n=0}^{N-1} x_n\\omega_N^{nk},\\;\\omega_N=e^{-2\\pi i/N}"
+    ],
+    "limitations": [
+      "Planning time can be high for one-off transforms."
+    ],
+    "source_type": "paper",
+    "summary": "Presented FFTW planning and runtime adaptation, showing superior practical performance over many fixed implementations.",
+    "title": "FFTW: An Adaptive Software Architecture for the FFT",
+    "url": "https://doi.org/10.1109/ICASSP.1998.681704",
+    "year": 1998
+  },
+  {
+    "assumptions": [
+      "Empirical plan search approximates optimal implementation choice.",
+      "Composite-size decomposition dominates real workloads."
+    ],
+    "authors": [
+      "Matteo Frigo",
+      "Steven G. Johnson"
+    ],
+    "citation": "S03",
+    "claims": [
+      "Planner-driven approach delivers robust cross-platform performance."
+    ],
+    "conclusions": [
+      "Autotuned FFT libraries can remain competitive across architecture generations."
+    ],
+    "contributions": [
+      "Systematized planner heuristics and codelet generation.",
+      "Documented reproducible benchmarking methodology for FFT libraries."
+    ],
+    "future_work": [
+      "More aggressive vectorization and multicore/cluster extensions."
+    ],
+    "key_equations": [
+      "\\text{cost(plan)}=\\sum_j w_j\\,t_j\\;\\text{(empirical timing objective)}"
+    ],
+    "limitations": [
+      "Planning and codelet generation complexity can limit constrained deployments."
+    ],
+    "source_type": "paper",
+    "summary": "Detailed FFTW3 architecture including planner search space, code generation, and portability techniques for high performance.",
+    "title": "The Design and Implementation of FFTW3",
+    "url": "https://doi.org/10.1109/JPROC.2004.840301",
+    "year": 2005
+  },
+  {
+    "assumptions": [
+      "Transform identities can be represented compositionally and searched automatically.",
+      "Performance objective can be approximated from generated kernel timings."
+    ],
+    "authors": [
+      "Markus Puschel",
+      "Jose M. F. Moura",
+      "Bryan Singer",
+      "Jianxin Xiong",
+      "Jeremy Johnson",
+      "David Padua",
+      "Manuela Veloso",
+      "Robert W. Johnson"
+    ],
+    "citation": "S04",
+    "claims": [
+      "Generated code can match or exceed expert-tuned libraries on target platforms."
+    ],
+    "conclusions": [
+      "Program generation is viable for FFT portability and sustained optimization."
+    ],
+    "contributions": [
+      "Transform formula language + code generation pipeline.",
+      "Automatic search over algorithmic and implementation variants."
+    ],
+    "future_work": [
+      "Heterogeneous targets and richer performance models."
+    ],
+    "key_equations": [
+      "\\mathrm{DFT}_N = (\\mathrm{DFT}_{N_1}\\otimes I_{N_2})D(I_{N_1}\\otimes \\mathrm{DFT}_{N_2})P"
+    ],
+    "limitations": [
+      "Search cost grows rapidly with transform family and hardware options."
+    ],
+    "source_type": "paper",
+    "summary": "Introduced a DSL and search-based synthesis system for architecture-adapted FFT and related transform kernels.",
+    "title": "SPIRAL: A Generator for Platform-Adapted Libraries of Signal Processing Algorithms",
+    "url": "https://doi.org/10.1177/1094342004041291",
+    "year": 2004
+  },
+  {
+    "assumptions": [
+      "Structured transform decompositions expose optimization opportunities.",
+      "Search-guided synthesis scales across transform families."
+    ],
+    "authors": [
+      "Markus Puschel",
+      "Jose M. F. Moura",
+      "Jeremy Johnson",
+      "David Padua",
+      "Manuela Veloso",
+      "Bryan Singer",
+      "Jianxin Xiong",
+      "Franz Franchetti",
+      "Ayon Dutt",
+      "Nilesh Gupta",
+      "et al."
+    ],
+    "citation": "S05",
+    "claims": [
+      "Autogenerated kernels can achieve near-peak performance."
+    ],
+    "conclusions": [
+      "Domain-specific generation is effective for sustained transform optimization."
+    ],
+    "contributions": [
+      "Unified representation for FFT/DCT/wavelet code generation.",
+      "Learning-guided search for implementation selection."
+    ],
+    "future_work": [
+      "Runtime adaptation and heterogeneous backends."
+    ],
+    "key_equations": [
+      "\\arg\\min_{f\\in\\mathcal{F}} T(f,\\text{arch})"
+    ],
+    "limitations": [
+      "Toolchain complexity and tuning overhead."
+    ],
+    "source_type": "paper",
+    "summary": "Extended SPIRAL into broader DSP transform generation with evidence of competitive performance versus hand-tuned libraries.",
+    "title": "SPIRAL: Code Generation for DSP Transforms",
+    "url": "https://doi.org/10.1109/JPROC.2004.840306",
+    "year": 2005
+  },
+  {
+    "assumptions": [
+      "Distributed-memory transpose dominates scaling at high process counts.",
+      "Pencil decomposition alleviates slab decomposition limits."
+    ],
+    "authors": [
+      "Dmitry Pekurovsky"
+    ],
+    "citation": "S06",
+    "claims": [
+      "2D decomposition improves scalability compared with slab methods."
+    ],
+    "conclusions": [
+      "Pencil decomposition is preferable for extreme-scale 3D FFT workloads."
+    ],
+    "contributions": [
+      "Portable framework for large-scale 3D FFT.",
+      "Practical guidance on decomposition and parameter choices."
+    ],
+    "future_work": [
+      "Hybrid MPI+threads/GPU extensions."
+    ],
+    "key_equations": [
+      "T_{3D\\,FFT}=T_{local\\,FFT}+T_{transpose1}+T_{transpose2}"
+    ],
+    "limitations": [
+      "Performance still communication-bound at very large scale."
+    ],
+    "source_type": "paper",
+    "summary": "Presented scalable 3D FFT with pencil decomposition and reported strong/weak scaling on large HPC systems.",
+    "title": "P3DFFT: A Framework for Parallel Computations of Fourier Transforms in Three Dimensions",
+    "url": "https://doi.org/10.1137/11082748X",
+    "year": 2012
+  },
+  {
+    "assumptions": [
+      "Bulk-synchronous communication model with latency/bandwidth terms.",
+      "Global transpose cost dominates at scale."
+    ],
+    "authors": [
+      "Krzysztof Czechowski",
+      "C. McClanahan",
+      "C. Battaglino",
+      "K. Iyer",
+      "P. K. Yeung",
+      "Richard Vuduc"
+    ],
+    "citation": "S07",
+    "claims": [
+      "Communication, not flops, is the limiting factor at extreme scale."
+    ],
+    "conclusions": [
+      "Algorithmic choices must target communication reduction first."
+    ],
+    "contributions": [
+      "Communication-centric model for parallel 3D FFT.",
+      "Implications for decomposition and network-aware design."
+    ],
+    "future_work": [
+      "Topology-aware communication schedules and overlap strategies."
+    ],
+    "key_equations": [
+      "T_{comm}=\\alpha m+\\beta V"
+    ],
+    "limitations": [
+      "Model calibration depends on system/network specifics."
+    ],
+    "source_type": "paper",
+    "summary": "Analyzed 3D FFT communication lower bounds and architecture implications for exascale systems.",
+    "title": "On the Communication Complexity of 3D FFTs and Its Implications for Exascale",
+    "url": "https://doi.org/10.1145/2304576.2304604",
+    "year": 2012
+  },
+  {
+    "assumptions": [
+      "MPI collectives govern distributed transpose performance.",
+      "GPU-CPU and network paths materially affect total FFT runtime."
+    ],
+    "authors": [
+      "Alan Ayala",
+      "Stanimire Tomov",
+      "Xi Luo",
+      "Hejer Shaeik",
+      "Azzam Haidar",
+      "George Bosilca",
+      "Jack Dongarra"
+    ],
+    "citation": "S08",
+    "claims": [
+      "Collective strategy strongly affects large-scale FFT throughput."
+    ],
+    "conclusions": [
+      "Communication-aware library design is mandatory for exascale FFT."
+    ],
+    "contributions": [
+      "Empirical analysis on Summit for communication bottlenecks.",
+      "Design recommendations for GPU-centric distributed FFT."
+    ],
+    "future_work": [
+      "Adaptive collectives and deeper overlap of communication/computation."
+    ],
+    "key_equations": [
+      "T_{alltoall}=\\alpha\\log p+\\beta\\frac{p-1}{p}N"
+    ],
+    "limitations": [
+      "Results tied to tested interconnect and MPI implementation."
+    ],
+    "source_type": "paper",
+    "summary": "Compared collective communication designs for large distributed FFT on multi-GPU systems and motivated heFFTe design choices.",
+    "title": "Impacts of Multi-GPU MPI Collective Communications on Large FFT Computation",
+    "url": "https://doi.org/10.1109/ExaMPI49596.2019.00007",
+    "year": 2019
+  },
+  {
+    "assumptions": [
+      "3D FFT can be decomposed into staged 1D FFT + transposes.",
+      "Communication dominates at high node counts."
+    ],
+    "authors": [
+      "Alan Ayala",
+      "Stanimire Tomov",
+      "Azzam Haidar",
+      "Jack Dongarra"
+    ],
+    "citation": "S09",
+    "claims": [
+      "Reported >40x local-kernel gains vs CPU baselines and >2x full FFT gains in tested settings."
+    ],
+    "conclusions": [
+      "heFFTe is suitable as a core exascale FFT component."
+    ],
+    "contributions": [
+      "Portable C++/CUDA+MPI library for large-scale FFT.",
+      "Detailed algorithmic decomposition and communication analysis."
+    ],
+    "future_work": [
+      "More backends and deeper communication/computation overlap."
+    ],
+    "key_equations": [
+      "N_0/P_{i0}\\times N_1/P_{i1}\\times N_2/P_{i2}\\xrightarrow[]{reshape+1D\\ FFTs}\\hat N_0/P_{o0}\\times\\hat N_1/P_{o1}\\times\\hat N_2/P_{o2}",
+      "T_{FFT}=T_{local}+T_{comm}"
+    ],
+    "limitations": [
+      "Performance remains sensitive to network collective behavior."
+    ],
+    "source_type": "paper",
+    "summary": "Introduced heFFTe for exascale-targeted distributed FFT with strong GPU scalability and communication models.",
+    "title": "heFFTe: Highly Efficient FFT for Exascale",
+    "url": "https://doi.org/10.1007/978-3-030-50371-0_19",
+    "year": 2020
+  },
+  {
+    "assumptions": [
+      "Cross-API implementation can retain near-vendor-level performance.",
+      "GPU memory behavior and kernel fusion are central to FFT throughput."
+    ],
+    "authors": [
+      "Dmitrii Tolmachev"
+    ],
+    "citation": "S10",
+    "claims": [
+      "Comparable or better performance than vendor-specific alternatives in tested cases."
+    ],
+    "conclusions": [
+      "Open cross-platform FFT can be viable for production HPC workloads."
+    ],
+    "contributions": [
+      "Unified open-source FFT backend for Vulkan/CUDA/HIP/OpenCL/Metal.",
+      "Precision and performance validation on modern GPUs."
+    ],
+    "future_work": [
+      "Broader architecture tuning and distributed extensions."
+    ],
+    "key_equations": [
+      "X_k=\\sum_{n=0}^{N-1}x_n e^{-2\\pi i kn/N}"
+    ],
+    "limitations": [
+      "Hardware- and size-dependent performance variance remains substantial."
+    ],
+    "source_type": "paper",
+    "summary": "Described VkFFT design and benchmarking across GPU APIs, reporting competitive performance and precision against vendor libraries.",
+    "title": "VkFFT - A Performant, Cross-Platform and Open-Source GPU FFT Library",
+    "url": "https://doi.org/10.1109/ACCESS.2023.3242240",
+    "year": 2023
+  },
+  {
+    "assumptions": [
+      "Runtime code generation can offset heterogeneity costs.",
+      "Device selection can be abstracted via runtime scheduler."
+    ],
+    "authors": [
+      "Sanil Rao",
+      "Franz Franchetti",
+      "et al."
+    ],
+    "citation": "S11",
+    "claims": [
+      "System improves portability without manual per-device rewrites."
+    ],
+    "conclusions": [
+      "Dynamic generation + runtime orchestration is practical for FFT kernels."
+    ],
+    "contributions": [
+      "Linked FFTX codegen and IRIS portability runtime.",
+      "Demonstrated heterogeneous execution for FFT-centric kernels."
+    ],
+    "future_work": [
+      "Scale-out experiments and broader workload coverage."
+    ],
+    "key_equations": [
+      "\\text{Runtime}=\\min_{d\\in D} \\{T_{gen}(d)+T_{exec}(d)\\}"
+    ],
+    "limitations": [
+      "Evidence focused on selected benchmarks and platforms."
+    ],
+    "source_type": "paper",
+    "summary": "Presented integration of FFTX runtime codegen with IRIS runtime for heterogeneous portability and benchmarked small FFT kernels.",
+    "title": "FFTX-IRIS: Towards Performance Portability and Heterogeneity for SPIRAL Generated Code",
+    "url": "https://doi.org/10.1145/3624062.3624242",
+    "year": 2023
+  },
+  {
+    "assumptions": [
+      "Kernel-based spreading/interpolation dominates NUFFT cost and error.",
+      "No-precompute interfaces are desirable for practical workflows."
+    ],
+    "authors": [
+      "Alex H. Barnett",
+      "Jeremy F. Magland",
+      "Ludvig af Klinteberg"
+    ],
+    "citation": "S12",
+    "claims": [
+      "Competitive or superior speed/memory behavior for many 3D/high-accuracy cases."
+    ],
+    "conclusions": [
+      "FINUFFT is a practical default for CPU NUFFT workloads."
+    ],
+    "contributions": [
+      "New kernel with favorable accuracy-speed tradeoff.",
+      "Multithreaded implementation and benchmark suite against existing libraries."
+    ],
+    "future_work": [
+      "Deeper GPU and distributed-memory support."
+    ],
+    "key_equations": [
+      "\\phi(x)=e^{\\beta\\sqrt{1-x^2}},\\;x\\in[-1,1]",
+      "f_k=\\sum_{j=1}^{M} c_j e^{ikx_j}"
+    ],
+    "limitations": [
+      "Performance depends on point distribution and tolerance regime."
+    ],
+    "source_type": "paper",
+    "summary": "Introduced FINUFFT with a new spreading kernel and showed high-accuracy/high-throughput NUFFT performance on CPUs.",
+    "title": "A Parallel Non-uniform Fast Fourier Transform Library Based on an Exponential of Semicircle Kernel",
+    "url": "https://doi.org/10.1137/18M1208851",
+    "year": 2019
+  },
+  {
+    "assumptions": [
+      "Oversampled FFT + interpolation is an efficient NUFFT approximation strategy.",
+      "Worst-case error optimization is suitable for kernel parameter tuning."
+    ],
+    "authors": [
+      "Jeffrey A. Fessler",
+      "Bradley P. Sutton"
+    ],
+    "citation": "S13",
+    "claims": [
+      "Min-max interpolation yields lower approximation errors than prior methods."
+    ],
+    "conclusions": [
+      "Interpolation design should be driven by explicit approximation criteria."
+    ],
+    "contributions": [
+      "Min-max criterion for interpolation design.",
+      "Comparative error evaluation versus conventional kernels."
+    ],
+    "future_work": [
+      "Extension to higher dimensions and hardware-aware tuning."
+    ],
+    "key_equations": [
+      "\\hat f(\\omega_m)\\approx\\sum_{n=0}^{N-1} f_n e^{-i\\omega_m n}",
+      "\\min_{\\text{interp params}}\\max_{\\|f\\|=1}\\epsilon(f)"
+    ],
+    "limitations": [
+      "Trade-offs remain between error, kernel width, and runtime."
+    ],
+    "source_type": "paper",
+    "summary": "Proposed min-max interpolation NUFFT design that reduces worst-case approximation error for nonuniform frequency sampling.",
+    "title": "Nonuniform Fast Fourier Transforms Using Min-Max Interpolation",
+    "url": "https://doi.org/10.1109/TSP.2002.807005",
+    "year": 2003
+  },
+  {
+    "assumptions": [
+      "Window-based gridding gives controllable NUFFT error/time tradeoff.",
+      "Library users need multiple NUFFT variants under one API."
+    ],
+    "authors": [
+      "J. Keiner",
+      "S. Kunis",
+      "D. Potts"
+    ],
+    "citation": "S14",
+    "claims": [
+      "NFFT3 provides robust and reusable NUFFT routines for scientific computing."
+    ],
+    "conclusions": [
+      "Unified software abstraction improves reproducibility for nonequispaced transforms."
+    ],
+    "contributions": [
+      "Comprehensive open-source NUFFT library architecture.",
+      "Support for multiple transform types and practical parameterization."
+    ],
+    "future_work": [
+      "Automatic parameter tuning and accelerator support."
+    ],
+    "key_equations": [
+      "f(x_j)=\\sum_{k\\in I_N} \\hat f_k e^{-2\\pi i k\\cdot x_j}"
+    ],
+    "limitations": [
+      "Parameter sensitivity can complicate out-of-box optimality."
+    ],
+    "source_type": "paper",
+    "summary": "Described NFFT3 software architecture and algorithms for nonequispaced transforms used in imaging and inverse problems.",
+    "title": "NFFT 3: A Software Library for Various Nonequispaced Fast Fourier Transforms",
+    "url": "https://doi.org/10.1145/2504435.2504438",
+    "year": 2013
+  },
+  {
+    "assumptions": [
+      "Low-frequency mode truncation captures dominant operator behavior.",
+      "Training data covers target PDE parameter distribution."
+    ],
+    "authors": [
+      "Zongyi Li",
+      "Nikola Kovachki",
+      "Kamyar Azizzadenesheli",
+      "Burigede Liu",
+      "Kaushik Bhattacharya",
+      "Andrew Stuart",
+      "Anima Anandkumar"
+    ],
+    "citation": "S15",
+    "claims": [
+      "Reported strong speed/accuracy tradeoffs and zero-shot super-resolution behavior."
+    ],
+    "conclusions": [
+      "Fourier parameterization is effective for global operator learning."
+    ],
+    "contributions": [
+      "Resolution-invariant operator-learning architecture based on FFT layers.",
+      "Empirical gains on Burgers, Darcy, and Navier-Stokes tasks."
+    ],
+    "future_work": [
+      "Better handling of discontinuities and adaptive mode selection."
+    ],
+    "key_equations": [
+      "v_{t+1}(x)=\\sigma\\left(Wv_t(x)+\\mathcal{F}^{-1}(R\\cdot\\mathcal{F}(v_t))(x)\\right)",
+      "G: A\\times\\Theta\\rightarrow U"
+    ],
+    "limitations": [
+      "Performance degrades when high-frequency modes dominate and are underrepresented."
+    ],
+    "source_type": "paper",
+    "summary": "Introduced Fourier-domain neural operator layers with FFT complexity for learning PDE solution operators across discretizations.",
+    "title": "Fourier Neural Operator for Parametric Partial Differential Equations",
+    "url": "https://doi.org/10.48550/arXiv.2010.08895",
+    "year": 2021
+  },
+  {
+    "assumptions": [
+      "Token mixing can be decoupled from learned attention weights for many tasks.",
+      "Feed-forward nonlinearity recovers expressivity lost from attention removal."
+    ],
+    "authors": [
+      "James Lee-Thorp",
+      "Joshua Ainslie",
+      "Ilya Eckstein",
+      "Santiago Ontanon"
+    ],
+    "citation": "S16",
+    "claims": [
+      "Substantial training speedups with modest accuracy loss."
+    ],
+    "conclusions": [
+      "Fourier mixing is a viable efficiency baseline for long-context models."
+    ],
+    "contributions": [
+      "Simple Fourier token mixer architecture.",
+      "Compute/accuracy tradeoff results on GLUE/LRA."
+    ],
+    "future_work": [
+      "Hybrid attention+Fourier architectures."
+    ],
+    "key_equations": [
+      "H'=\\Re(\\mathcal{F}(H))",
+      "\\mathcal{F}(x)_{k}=\\sum_n x_n e^{-2\\pi i kn/N}"
+    ],
+    "limitations": [
+      "Task-dependent accuracy regressions versus full attention."
+    ],
+    "source_type": "paper",
+    "summary": "Replaced transformer self-attention with unparameterized Fourier token mixing to improve throughput while preserving much of baseline accuracy.",
+    "title": "FNet: Mixing Tokens with Fourier Transforms",
+    "url": "https://doi.org/10.48550/arXiv.2105.03824",
+    "year": 2021
+  },
+  {
+    "assumptions": [
+      "Frequency-domain sparsification can preserve task signal while reducing complexity.",
+      "Global convolution framing is suitable for token mixing."
+    ],
+    "authors": [
+      "John Guibas",
+      "Morteza Mardani",
+      "Zongyi Li",
+      "Andrew Tao",
+      "Anima Anandkumar",
+      "Bryan Catanzaro"
+    ],
+    "citation": "S17",
+    "claims": [
+      "Outperforms or matches efficient attention alternatives on tested settings."
+    ],
+    "conclusions": [
+      "Operator-learning ideas transfer effectively to vision token mixing."
+    ],
+    "contributions": [
+      "AFNO block with linear memory scaling in sequence length.",
+      "High-resolution segmentation results with efficient token mixing."
+    ],
+    "future_work": [
+      "Automatic sparsity scheduling and broader modality evaluation."
+    ],
+    "key_equations": [
+      "Y=\\mathcal{F}^{-1}(\\text{Shrink}(B\\odot\\mathcal{F}(X)))"
+    ],
+    "limitations": [
+      "Performance depends on mode sparsification hyperparameters."
+    ],
+    "source_type": "paper",
+    "summary": "Adapted Fourier operator layers for vision transformers using block-diagonal channel mixing and frequency sparsification.",
+    "title": "Adaptive Fourier Neural Operators: Efficient Token Mixers for Transformers",
+    "url": "https://doi.org/10.48550/arXiv.2111.13587",
+    "year": 2021
+  },
+  {
+    "assumptions": [
+      "Long-range dependencies can be captured by structured convolutions.",
+      "FFT acceleration is practical for large-context sequence models."
+    ],
+    "authors": [
+      "Michael Poli",
+      "Stefano Massaroli",
+      "et al."
+    ],
+    "citation": "S18",
+    "claims": [
+      "Convolutional alternatives can compete with transformer baselines in certain regimes."
+    ],
+    "conclusions": [
+      "FFT-enabled convolution is a strong primitive for long sequence modeling."
+    ],
+    "contributions": [
+      "Hyena operator stack with efficient long-convolution design.",
+      "Language modeling results at long context lengths."
+    ],
+    "future_work": [
+      "Improved kernel parameterization and systems-level optimization."
+    ],
+    "key_equations": [
+      "y=\\mathcal{F}^{-1}(\\mathcal{F}(u)\\odot\\mathcal{F}(k))"
+    ],
+    "limitations": [
+      "Kernel design/training stability can be sensitive for very long contexts."
+    ],
+    "source_type": "paper",
+    "summary": "Proposed long-convolution language model hierarchy where FFT-based convolutions are central for long-context efficiency.",
+    "title": "Hyena Hierarchy: Towards Larger Convolutional Language Models",
+    "url": "https://doi.org/10.48550/arXiv.2302.10866",
+    "year": 2023
+  },
+  {
+    "assumptions": [
+      "Structured matrices can replace dense attention-like mixing with better hardware throughput."
+    ],
+    "authors": [
+      "Daniel Y. Fu",
+      "Simran Arora",
+      "Jessica Grogan",
+      "Isys Johnson",
+      "Sabri Eyuboglu",
+      "Armin W. Thomas",
+      "Benjamin Spector",
+      "Michael Poli",
+      "Atri Rudra",
+      "Christopher Re"
+    ],
+    "citation": "S19",
+    "claims": [
+      "Higher throughput and competitive quality at long sequence lengths."
+    ],
+    "conclusions": [
+      "Structured mixers are viable for efficient large-context models."
+    ],
+    "contributions": [
+      "Unified sub-quadratic primitive across sequence and channel dimensions.",
+      "Reported throughput and quality tradeoffs across NLP/CV settings."
+    ],
+    "future_work": [
+      "Integration with faster convolution/FFT kernels."
+    ],
+    "key_equations": [
+      "M=PD_1P^TD_2\\; (\\text{Monarch-style structured mixing})"
+    ],
+    "limitations": [
+      "Task-dependent tuning and architecture-specific kernels required."
+    ],
+    "source_type": "paper",
+    "summary": "Presented sub-quadratic structured mixing architecture; relevant as downstream consumer of fast Fourier/conv primitives in long-sequence systems.",
+    "title": "Monarch Mixer: A Simple Sub-Quadratic GEMM-Based Architecture",
+    "url": "https://doi.org/10.48550/arXiv.2310.12109",
+    "year": 2023
+  },
+  {
+    "assumptions": [
+      "FFT conv bottlenecks are dominated by tensor-core underutilization and memory I/O.",
+      "Block-skipping sparsity can preserve quality for long-sequence tasks."
+    ],
+    "authors": [
+      "Daniel Y. Fu",
+      "Hermann Kumbong",
+      "Eric Nguyen",
+      "Christopher Re"
+    ],
+    "citation": "S20",
+    "claims": [
+      "Reported up to 7.93x kernel speedup and significant end-to-end gains in tested models."
+    ],
+    "conclusions": [
+      "Systems-level kernel design can substantially improve practical FFT-conv efficiency."
+    ],
+    "contributions": [
+      "Tensor-core FFT decomposition with fused kernels.",
+      "Partial and frequency-sparse convolution algorithms."
+    ],
+    "future_work": [
+      "Wider architecture coverage and auto-tuning of sparse patterns."
+    ],
+    "key_equations": [
+      "y=\\mathrm{iFFT}(\\mathrm{FFT}(u)\\odot\\mathrm{FFT}(k))",
+      "\\mathcal{O}(N\\log N)\\;\\text{exact FFT convolution}"
+    ],
+    "limitations": [
+      "Requires hardware-specific kernel engineering and memory constraints."
+    ],
+    "source_type": "paper",
+    "summary": "Optimized FFT-based long convolutions with tensor-core-friendly decomposition and sparse variants, reporting large speedups over baseline FFT conv.",
+    "title": "FlashFFTConv: Efficient Convolutions for Long Sequences with Tensor Cores",
+    "url": "https://doi.org/10.48550/arXiv.2311.05908",
+    "year": 2023
+  },
+  {
+    "assumptions": [
+      "Repeatable runtime and round-trip error metrics can rank FFT implementations."
+    ],
+    "authors": [
+      "Suren Chilingaryan",
+      "Andrei Shkarin",
+      "Roman Shkarin",
+      "Matthias Vogelgesang",
+      "Sergey Tsapko"
+    ],
+    "citation": "S21",
+    "claims": [
+      "cuFFT was fastest on tested GTX Tesla/Titan configurations."
+    ],
+    "conclusions": [
+      "Automated benchmark tooling is necessary for fair FFT library selection."
+    ],
+    "contributions": [
+      "Cross-library benchmarking utility and empirical comparisons on NVIDIA GPUs."
+    ],
+    "future_work": [
+      "Broader device coverage and reproducible benchmark standardization."
+    ],
+    "key_equations": [
+      "\\epsilon=\\|x-\\mathrm{IFFT}(\\mathrm{FFT}(x))\\|_2/\\|x\\|_2"
+    ],
+    "limitations": [
+      "Hardware scope limited to tested devices and library versions."
+    ],
+    "source_type": "paper",
+    "summary": "Proposed a benchmarking application for comparing FFT library performance and precision across available CPU/GPU devices.",
+    "title": "Benchmark for FFT Libraries",
+    "url": "https://doi.org/10.4028/www.scientific.net/AMM.756.673",
+    "year": 2015
+  },
+  {
+    "assumptions": [
+      "Algorithmic taxonomy helps compare practical FFT variants."
+    ],
+    "authors": [
+      "Henri J. Nussbaumer",
+      "C. M. M. Prado"
+    ],
+    "citation": "S22",
+    "claims": [
+      "FFT progress depends on both arithmetic complexity and implementation concerns."
+    ],
+    "conclusions": [
+      "No single FFT variant dominates all workload/hardware cases."
+    ],
+    "contributions": [
+      "Comprehensive review of Cooley-Tukey, split-radix, prime-factor, and Winograd methods."
+    ],
+    "future_work": [
+      "Architecture-specific benchmarking and automated selection methods."
+    ],
+    "key_equations": [
+      "\\mathcal{O}(N^2)\\rightarrow\\mathcal{O}(N\\log_2N)"
+    ],
+    "limitations": [
+      "Predates modern multicore/GPU memory hierarchy realities."
+    ],
+    "source_type": "paper",
+    "summary": "Surveyed major FFT families and implementation issues, framing open problems around algorithmic complexity and practical deployment.",
+    "title": "Fast Fourier Transforms: A Tutorial Review and a State of the Art",
+    "url": "https://doi.org/10.1016/0165-1684(90)90158-U",
+    "year": 1990
+  },
+  {
+    "assumptions": [
+      "Parallel communication mapping materially changes realized FFT speedup."
+    ],
+    "authors": [
+      "H. V. Sorensen",
+      "et al."
+    ],
+    "citation": "S23",
+    "claims": [
+      "Alternative data mappings can reduce communication and improve flexibility."
+    ],
+    "conclusions": [
+      "Parallel FFT design must co-optimize decomposition and data motion."
+    ],
+    "contributions": [
+      "Unified treatment of FFT parallel variants.",
+      "Communication complexity discussion for multiprocessors."
+    ],
+    "future_work": [
+      "Model updates for hierarchical and heterogeneous systems."
+    ],
+    "key_equations": [
+      "T_p=\\frac{T_1}{p}+T_{comm}(p)"
+    ],
+    "limitations": [
+      "Legacy architecture assumptions relative to modern accelerators."
+    ],
+    "source_type": "paper",
+    "summary": "Compared FFT parallelization approaches in a unified framework and introduced additional communication-aware variants.",
+    "title": "FFT Algorithms and Their Adaptation to Parallel Processing",
+    "url": "https://doi.org/10.1016/S0024-3795(98)10086-1",
+    "year": 1998
+  },
+  {
+    "assumptions": [
+      "FFTW-MPI slab decomposition limits can be overcome with multidimensional decomposition."
+    ],
+    "authors": [
+      "M. Pippig"
+    ],
+    "citation": "S24",
+    "claims": [
+      "Improves scalability for large distributed FFT workloads."
+    ],
+    "conclusions": [
+      "FFTW-compatible extensions aid adoption in HPC codes."
+    ],
+    "contributions": [
+      "Practical interface similar to FFTW-MPI with extended decomposition support.",
+      "Open-source implementation and tests."
+    ],
+    "future_work": [
+      "Hybrid MPI/OpenMP improvements and wider backend support."
+    ],
+    "key_equations": [
+      "N_{proc,max}\\approx N^2\\;\\text{(pencil decomposition scaling intuition)}"
+    ],
+    "limitations": [
+      "Depends on external FFTW and MPI stack quality."
+    ],
+    "source_type": "report",
+    "summary": "Presented PFFT as a massively parallel extension to FFTW with multidimensional data decomposition for distributed-memory systems.",
+    "title": "PFFT - An Extension of FFTW to Massively Parallel Architectures",
+    "url": "https://github.com/mpip/pfft",
+    "year": 2013
+  },
+  {
+    "assumptions": [],
+    "authors": [
+      "NVIDIA"
+    ],
+    "citation": "S25",
+    "claims": [
+      "Supports broad transform modes and precisions with optimized kernels."
+    ],
+    "conclusions": [
+      "Primary source for runtime capabilities/constraints in NVIDIA environments."
+    ],
+    "contributions": [
+      "Operational API specification for reproducible cuFFT benchmarking."
+    ],
+    "future_work": [],
+    "key_equations": [
+      "O(n\\log n)",
+      "2^a3^b5^c7^d\\;\\text{size factorization preference}"
+    ],
+    "limitations": [
+      "Does not provide third-party comparative fairness criteria."
+    ],
+    "source_type": "report",
+    "summary": "Vendor reference for CUDA FFT APIs, supported transform types, precision modes, plan behavior, and multi-GPU features.",
+    "title": "cuFFT 13.2 Documentation",
+    "url": "https://docs.nvidia.com/cuda/cufft/",
+    "year": 2026
+  },
+  {
+    "assumptions": [],
+    "authors": [
+      "AMD ROCm Team"
+    ],
+    "citation": "S26",
+    "claims": [
+      "Fast and accurate HIP-based 1D/2D/3D FFT support for GPU devices."
+    ],
+    "conclusions": [
+      "Canonical source for AMD GPU FFT benchmark setup and feature checks."
+    ],
+    "contributions": [
+      "Defines supported transform features and operational guidance for ROCm benchmarking."
+    ],
+    "future_work": [],
+    "key_equations": [],
+    "limitations": [
+      "No vendor-neutral comparison methodology."
+    ],
+    "source_type": "report",
+    "summary": "Official ROCm FFT documentation detailing supported dimensions/types, APIs, and distributed/runtime compilation workflows.",
+    "title": "rocFFT Documentation (ROCm 7.2.0)",
+    "url": "https://rocm.docs.amd.com/projects/rocFFT/en/latest/",
+    "year": 2026
+  },
+  {
+    "assumptions": [],
+    "authors": [
+      "Intel"
+    ],
+    "citation": "S27",
+    "claims": [
+      "Enumerates supported real/complex 1D/2D/3D transforms by target device."
+    ],
+    "conclusions": [
+      "Useful for constraining benchmark suites to portable transform subsets."
+    ],
+    "contributions": [
+      "Capability matrix needed for benchmark feature parity checks across libraries."
+    ],
+    "future_work": [],
+    "key_equations": [],
+    "limitations": [
+      "Performance guidance is not comprehensive for all workloads."
+    ],
+    "source_type": "report",
+    "summary": "Reference matrix for oneMKL DFT capabilities across CPU/GPU and dimensionality/transform-type support.",
+    "title": "Intel oneMKL DFT Functionality Reference",
+    "url": "https://www.intel.com/content/www/us/en/docs/onemkl/developer-reference-dpcpp/2023-0/dft-functionality.html",
+    "year": 2022
+  },
+  {
+    "assumptions": [],
+    "authors": [
+      "Intel"
+    ],
+    "citation": "S28",
+    "claims": [
+      "Documents specific 1/2/3D FFT optimization updates on Intel GPU families."
+    ],
+    "conclusions": [
+      "Benchmark reports should record exact oneMKL release due to frequent optimization changes."
+    ],
+    "contributions": [
+      "Provides date-stamped optimization changes to avoid stale benchmark assumptions."
+    ],
+    "future_work": [],
+    "key_equations": [],
+    "limitations": [
+      "Release notes are descriptive, not full methodology/performance proofs."
+    ],
+    "source_type": "report",
+    "summary": "Release notes with recent DFT optimizations and supported hardware details relevant for recency-aware benchmark planning.",
+    "title": "Intel oneMKL Release Notes",
+    "url": "https://www.intel.com/content/www/us/en/developer/articles/release-notes/onemkl-release-notes.html",
+    "year": 2026
+  },
+  {
+    "assumptions": [],
+    "authors": [
+      "FFTW authors"
+    ],
+    "citation": "S29",
+    "claims": [
+      "Highlights adaptive planning strategy and linked publications."
+    ],
+    "conclusions": [
+      "Required canonical source when citing FFTW software provenance."
+    ],
+    "contributions": [
+      "Primary project-level source for FFTW references and distribution."
+    ],
+    "future_work": [],
+    "key_equations": [],
+    "limitations": [
+      "Not a peer-reviewed performance evaluation itself."
+    ],
+    "source_type": "code",
+    "summary": "Canonical project site for FFTW releases, papers, and implementation notes.",
+    "title": "FFTW Home Page",
+    "url": "https://www.fftw.org/",
+    "year": 2026
+  },
+  {
+    "assumptions": [],
+    "authors": [
+      "FFTW maintainers"
+    ],
+    "citation": "S30",
+    "claims": [
+      "Contains canonical source distribution snapshots and version history."
+    ],
+    "conclusions": [
+      "Essential for code-level reproducibility in benchmark harnesses."
+    ],
+    "contributions": [
+      "Provides inspectable source for reproducibility and integration checks."
+    ],
+    "future_work": [],
+    "key_equations": [],
+    "limitations": [
+      "Repository mirror warning notes special checkout/release process."
+    ],
+    "source_type": "code",
+    "summary": "Source repository for FFTW3 build system, code, and maintenance history.",
+    "title": "FFTW GitHub Repository",
+    "url": "https://github.com/FFTW/fftw3",
+    "year": 2026
+  },
+  {
+    "assumptions": [],
+    "authors": [
+      "Dmitrii Tolmachev and contributors"
+    ],
+    "citation": "S31",
+    "claims": [
+      "Cross-platform backend supports Vulkan/CUDA/HIP/OpenCL/Metal workflows."
+    ],
+    "conclusions": [
+      "High-reuse codebase candidate for benchmark inclusion."
+    ],
+    "contributions": [
+      "Open-source implementation tied to IEEE Access VkFFT paper."
+    ],
+    "future_work": [],
+    "key_equations": [],
+    "limitations": [
+      "Performance portability still depends on backend-specific tuning."
+    ],
+    "source_type": "code",
+    "summary": "Official VkFFT implementation repository covering multiple GPU APIs and integration examples.",
+    "title": "VkFFT GitHub Repository",
+    "url": "https://github.com/DTolm/VkFFT",
+    "year": 2026
+  },
+  {
+    "assumptions": [],
+    "authors": [
+      "ICL/ORNL contributors"
+    ],
+    "citation": "S32",
+    "claims": [
+      "Targets scalable heterogeneous FFT on HPC platforms."
+    ],
+    "conclusions": [
+      "Strong candidate for distributed benchmark baselines."
+    ],
+    "contributions": [
+      "Open-source distributed FFT implementation aligned with ICCS heFFTe paper."
+    ],
+    "future_work": [],
+    "key_equations": [],
+    "limitations": [
+      "Requires MPI/HPC environment for full feature validation."
+    ],
+    "source_type": "code",
+    "summary": "Reference implementation of distributed exascale FFT workflows and backend integrations (FFTW, MKL, cuFFT, rocFFT, etc.).",
+    "title": "heFFTe GitHub Repository",
+    "url": "https://github.com/icl-utk-edu/heffte",
+    "year": 2026
+  },
+  {
+    "assumptions": [],
+    "authors": [
+      "Flatiron Institute contributors"
+    ],
+    "citation": "S33",
+    "claims": [
+      "Supports type 1/2/3 NUFFT in 1D/2D/3D with precision control."
+    ],
+    "conclusions": [
+      "Useful for expanding benchmark scope beyond uniform FFT."
+    ],
+    "contributions": [
+      "Production-quality NUFFT code aligned with SIAM SISC paper."
+    ],
+    "future_work": [],
+    "key_equations": [],
+    "limitations": [
+      "Separate project needed for GPU acceleration coverage."
+    ],
+    "source_type": "code",
+    "summary": "Maintained NUFFT implementation with multi-language bindings and benchmark tooling for CPU workflows.",
+    "title": "FINUFFT GitHub Repository",
+    "url": "https://github.com/flatironinstitute/finufft",
+    "year": 2026
+  },
+  {
+    "assumptions": [],
+    "authors": [
+      "Flatiron Institute contributors"
+    ],
+    "citation": "S34",
+    "claims": [
+      "Provides CUDA-accelerated NUFFT operations compatible with FINUFFT ecosystem."
+    ],
+    "conclusions": [
+      "Enables GPU extension of transform benchmark matrix."
+    ],
+    "contributions": [
+      "GPU-side NUFFT baseline for high-throughput nonuniform workloads."
+    ],
+    "future_work": [],
+    "key_equations": [],
+    "limitations": [
+      "CUDA-only; cross-vendor portability is limited."
+    ],
+    "source_type": "code",
+    "summary": "GPU NUFFT implementation for type-1/type-2 transforms in 1D/2D/3D on CUDA platforms.",
+    "title": "cuFINUFFT GitHub Repository",
+    "url": "https://github.com/flatironinstitute/cufinufft",
+    "year": 2026
+  },
+  {
+    "assumptions": [],
+    "authors": [
+      "SPIRAL project contributors"
+    ],
+    "citation": "S35",
+    "claims": [
+      "Supports architecture-aware transform kernel synthesis."
+    ],
+    "conclusions": [
+      "Important reusable candidate for auto-tuned benchmark baselines."
+    ],
+    "contributions": [
+      "Reusable code generation pipeline for transform specialization."
+    ],
+    "future_work": [],
+    "key_equations": [],
+    "limitations": [
+      "Higher onboarding complexity than prebuilt libraries."
+    ],
+    "source_type": "code",
+    "summary": "Public source repository for SPIRAL program generation framework used to synthesize optimized FFT and related transform code.",
+    "title": "SPIRAL Software GitHub Repository",
+    "url": "https://github.com/spiral-software/spiral-software",
+    "year": 2026
+  },
+  {
+    "assumptions": [
+      "Communication overhead dominates strong-scaling behavior in standard 3D FFT pipelines.",
+      "Point-to-point exchange patterns can outperform all-to-all on some fat-tree deployments despite higher arithmetic cost."
+    ],
+    "authors": [
+      "A. Y. Popov",
+      "S. V. Kolesnikov",
+      "et al."
+    ],
+    "citation": "S36",
+    "claims": [
+      "Alternative communication pattern can improve scalability in selected network regimes.",
+      "Communication characteristics can outweigh extra arithmetic complexity."
+    ],
+    "conclusions": [
+      "Communication-aware algorithm selection is environment-dependent; FFT is not universally optimal at scale."
+    ],
+    "contributions": [
+      "Introduces S3DFT distributed algorithm and implementation.",
+      "Provides scaling analysis on fat-tree networked clusters and contrasts communication behavior with parallel FFT."
+    ],
+    "future_work": [
+      "Broader topology studies and hybrid strategy selection between FFT and tensor-multiplication DFT."
+    ],
+    "key_equations": [
+      "X_{k_1,k_2,k_3}=\\sum_{n_1,n_2,n_3} x_{n_1,n_2,n_3} e^{-2\\pi i(\\frac{k_1n_1}{N_1}+\\frac{k_2n_2}{N_2}+\\frac{k_3n_3}{N_3})}",
+      "T=\\alpha m+\\beta V+\\gamma F"
+    ],
+    "limitations": [
+      "Comparisons are tied to tested cluster/network topologies and implementation choices."
+    ],
+    "source_type": "paper",
+    "summary": "Presents S3DFT, an alternative distributed 3D DFT method that reduces all-to-all usage by employing point-to-point communication with modified Cannon-style tensor-matrix multiplication.",
+    "title": "3D DFT by Block Tensor-Matrix Multiplication via a Modified Cannon's Algorithm: Implementation and Scaling on Distributed-Memory Clusters with Fat Tree Networks",
+    "url": "https://www.sciencedirect.com/science/article/pii/S0743731524001096",
+    "year": 2024
+  },
+  {
+    "assumptions": [
+      "Pseudo-spectral Navier-Stokes solvers are FFT-bound at extreme resolutions.",
+      "OpenMP target offloading plus GPU kernels can sustain exascale throughput with careful memory/communication design."
+    ],
+    "authors": [
+      "P. K. Yeung",
+      "K. Ravikumar",
+      "S. Nichols",
+      "R. Uma-Vaideswaran"
+    ],
+    "citation": "S37",
+    "claims": [
+      "Frontier-scale runs show feasible extreme-resolution turbulence with GPU-first Fourier methods."
+    ],
+    "conclusions": [
+      "FFT-centric pseudo-spectral algorithms remain viable at exascale with architecture-aware implementation."
+    ],
+    "contributions": [
+      "Demonstrates production-scale FFT-heavy simulation up to tens of trillions of grid points.",
+      "Documents practical systems choices for exascale GPU pseudo-spectral pipelines."
+    ],
+    "future_work": [
+      "Portability evaluation across additional exascale systems and communication/runtime tuning layers."
+    ],
+    "key_equations": [
+      "\\partial_t \\hat u(\\mathbf{k},t)+\\widehat{(u\\cdot\\nabla u)}=-\\nu |\\mathbf{k}|^2\\hat u+\\hat f",
+      "u(\\mathbf{x})=\\mathcal{F}^{-1}(\\hat u(\\mathbf{k}))"
+    ],
+    "limitations": [
+      "Results are tied to Frontier hardware/software stack and turbulence workload specifics."
+    ],
+    "source_type": "paper",
+    "summary": "Reports exascale Fourier pseudo-spectral turbulence simulations on Frontier and characterizes performance constraints and scaling for FFT-intensive workloads.",
+    "title": "GPU-enabled Extreme-Scale Turbulence Simulations: Fourier Pseudo-Spectral Algorithms at the Exascale using OpenMP Offloading",
+    "url": "https://www.osti.gov/biblio/2498458",
+    "year": 2024
+  },
+  {
+    "assumptions": [
+      "Adder architecture is a dominant factor in FPGA FFT energy-delay outcomes.",
+      "Split-radix decomposition can improve resource/performance balance versus radix-2 and radix-4 in tested hardware flow."
+    ],
+    "authors": [
+      "Mahsa Shirzadian Gilan",
+      "Behrouz Maham"
+    ],
+    "citation": "S38",
+    "claims": [
+      "Split-radix configuration with proposed adder provides favorable speed-power-area tradeoff in tested setup."
+    ],
+    "conclusions": [
+      "Hardware-level arithmetic design materially changes FFT implementation ranking."
+    ],
+    "contributions": [
+      "Introduces and evaluates a new parallel-prefix adder in multiple FFT structures.",
+      "Provides comparative power, area, and frequency results across radix variants."
+    ],
+    "future_work": [
+      "ASIC evaluations and broader precision/size exploration."
+    ],
+    "key_equations": [
+      "Y_{2k}=\\sum_{n=0}^{M/2-1}(y_n+y_{n+M/2})W_{M/2}^{kn}",
+      "Y_{2k+1}=\\sum_{n=0}^{M/2-1}(y_n-y_{n+M/2})W_{M/2}^{n}W_{M/2}^{kn}"
+    ],
+    "limitations": [
+      "Findings depend on selected FPGA toolchain/process and implementation settings."
+    ],
+    "source_type": "paper",
+    "summary": "Compares radix-2/radix-4/split-radix hardware implementations using a proposed parallel-prefix adder to reduce power-delay and improve speed.",
+    "title": "Optimized Power and Speed of Split-Radix, Radix-4 and Radix-2 FFT Structures",
+    "url": "https://link.springer.com/article/10.1186/s13634-024-01178-4",
+    "year": 2024
+  },
+  {
+    "assumptions": [
+      "Matrix-core intrinsic utilization and memory-traffic reduction are primary levers for multidimensional GPU FFT speedups.",
+      "Stockham formulation maps effectively to matrix-multiplication style kernels."
+    ],
+    "authors": [
+      "Lu Lu",
+      "Songxiang Zhu",
+      "Qingyan Tian",
+      "Haishan Lin",
+      "Yijie Guo"
+    ],
+    "citation": "S39",
+    "claims": [
+      "Reports average performance gains for 1D/2D/3D FFT and large 3D advantage versus compared libraries on tested platform."
+    ],
+    "conclusions": [
+      "Matrix-core-oriented design can improve practical GPU FFT throughput for multidimensional workloads."
+    ],
+    "contributions": [
+      "Introduces register-level elementwise multiplication scheduling and shared-memory reordering for FFT.",
+      "Benchmarks against rocFFT and VkFFT on AMD MI250."
+    ],
+    "future_work": [
+      "Cross-platform validation and automated tuning for matrix-core FFT kernels."
+    ],
+    "key_equations": [
+      "\\mathrm{FFT}_{Stockham}: X^{(s+1)}=P_s T_s X^{(s)}",
+      "C=A\\times B\\;\\text{(matrix-core accelerated stage kernels)}"
+    ],
+    "limitations": [
+      "Evaluation is platform-specific and may not generalize across GPU architectures."
+    ],
+    "source_type": "paper",
+    "summary": "Proposes matrix-core-based Stockham FFT optimization on AMD MI250, reporting improved 1D/2D/3D performance over rocFFT and VkFFT in tested cases.",
+    "title": "Design and Optimization of High-Performance Multi-Dimensional FFT Based on Matrix Core",
+    "url": "https://www.sciopen.com/article/10.12141/j.issn.1000-565X.240035",
+    "year": 2025
+  },
+  {
+    "assumptions": [
+      "Conventional FFT mappings are suboptimal on NPU dataflow constraints.",
+      "Heterogeneous CPU+NPU scheduling can improve energy-performance tradeoffs for transform preprocessing."
+    ],
+    "authors": [
+      "Qing Li",
+      "Decheng Zuo",
+      "Yi Feng",
+      "Dongxin Wen"
+    ],
+    "citation": "S40",
+    "claims": [
+      "NPU-aware transform strategy improves practical throughput/efficiency over naive mappings in tested scenarios."
+    ],
+    "conclusions": [
+      "Hardware-specific transform mapping is essential for edge SoC deployments."
+    ],
+    "contributions": [
+      "Adapts Fourier computation strategy to NPU execution characteristics.",
+      "Evaluates performance/efficiency implications in edge-oriented contexts."
+    ],
+    "future_work": [
+      "Broader NPU families and mixed-precision numerical fidelity analysis."
+    ],
+    "key_equations": [
+      "X_k=\\sum_{n=0}^{N-1} x_n e^{-j2\\pi kn/N}",
+      "\\text{Complexity: }O(N\\log N)\\text{ vs }O(N^2)"
+    ],
+    "limitations": [
+      "Generalization beyond studied NPU stack and application mix is limited."
+    ],
+    "source_type": "paper",
+    "summary": "Investigates Fourier-transform acceleration strategies tailored to NPU-oriented heterogeneous SoCs with energy constraints for wearable/edge contexts.",
+    "title": "Research on High-Performance Fourier Transform Algorithms Based on the NPU",
+    "url": "https://www.mdpi.com/2076-3417/14/1/405",
+    "year": 2024
+  },
+  {
+    "assumptions": [
+      "Communication dominates at scale and can be reduced with lower-precision exchange while preserving overall accuracy through normalization.",
+      "Mixed-precision strategy is acceptable for target application error tolerances."
+    ],
+    "authors": [
+      "Yuwen Zhao",
+      "Fangfang Liu",
+      "Wenjing Ma",
+      "Huiyuan Li",
+      "Yuanchi Peng",
+      "Cui Wang"
+    ],
+    "citation": "S41",
+    "claims": [
+      "Reported faster execution than double-precision baseline and stronger performance than selected open-source baselines on tested systems."
+    ],
+    "conclusions": [
+      "Mixed-precision communication is a practical lever for large-scale FFT efficiency."
+    ],
+    "contributions": [
+      "Introduces shared-exponent communication compression for distributed FFT.",
+      "Combines kernel, memory, and message optimizations in a large-scale GPU framework."
+    ],
+    "future_work": [
+      "Adaptive precision control and broader architecture portability analysis."
+    ],
+    "key_equations": [
+      "T_{total}=T_{compute}+T_{comm}+T_{norm}",
+      "x\\approx m\\times 2^e\\;\\text{(shared-exponent compression form)}"
+    ],
+    "limitations": [
+      "Accuracy-speed tradeoff depends on workload spectra and tolerance requirements."
+    ],
+    "source_type": "paper",
+    "summary": "Presents mixed-precision large-scale distributed FFT with shared-exponent communication compression and two-phase normalization, showing strong scaling to 4096 GPUs.",
+    "title": "MFFT: A GPU Accelerated Highly Efficient Mixed-Precision Large-Scale FFT Framework",
+    "url": "https://dl.acm.org/doi/10.1145/3605148",
+    "year": 2023
+  },
+  {
+    "assumptions": [
+      "All-to-all and point-to-point communication tuning strongly impacts end-to-end FFT scaling.",
+      "Model-guided tuning can improve application-level performance for FFT-heavy workloads."
+    ],
+    "authors": [
+      "Alan Ayala",
+      "Stan Tomov",
+      "Miroslav Stoyanov",
+      "Azzam Haidar",
+      "Jack Dongarra"
+    ],
+    "citation": "S42",
+    "claims": [
+      "Careful tuning can achieve near-linear scaling regimes and notable acceleration for FFT-dependent applications."
+    ],
+    "conclusions": [
+      "Communication-model-guided parameter tuning is necessary for practical large GPU FFT deployments."
+    ],
+    "contributions": [
+      "Introduces a parameterized algorithm including grid shrinking and batched transforms.",
+      "Develops bandwidth-centric performance analysis on large multi-GPU systems."
+    ],
+    "future_work": [
+      "Extending tuning strategies to new exascale GPU architectures and libraries."
+    ],
+    "key_equations": [
+      "T_{FFT}=T_{comp}+T_{A2A/P2P}",
+      "B_{eff}=\\frac{Data\\ Volume}{Time}"
+    ],
+    "limitations": [
+      "Measured outcomes are tied to Summit/Spock-era hardware and software stacks."
+    ],
+    "source_type": "paper",
+    "summary": "Analyzes multi-GPU multidimensional FFT performance with bandwidth/communication models and tuning across Summit/Spock systems.",
+    "title": "Performance Analysis of Parallel FFT on Large Multi-GPU Systems",
+    "url": "https://doi.org/10.1109/IPDPSW55747.2022.00072",
+    "year": 2022
+  }
+]

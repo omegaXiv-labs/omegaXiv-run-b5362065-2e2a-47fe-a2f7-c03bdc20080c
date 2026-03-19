@@ -1,0 +1,16 @@
+# direct; required_by: omegaxiv-fft-policy-selector, fft_policy_selector.core, fft_policy_selector.analysis
+numpy>=1.24,<3
+# direct; required_by: omegaxiv-fft-policy-selector, fft_policy_selector.core, fft_policy_selector.analysis, fft_policy_selector.pipeline
+pandas>=2.0,<3
+# direct; required_by: omegaxiv-fft-policy-selector, fft_policy_selector.symbolic
+sympy>=1.12,<2
+# transitive via pandas; required_by: pandas
+python-dateutil>=2.9.0
+# transitive via pandas; required_by: pandas
+pytz>=2026.1
+# transitive via pandas; required_by: pandas
+tzdata>=2025.3
+# transitive via python-dateutil; required_by: python-dateutil
+six>=1.17.0
+# transitive via sympy; required_by: sympy
+mpmath>=1.3.0

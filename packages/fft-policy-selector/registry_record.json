@@ -1,0 +1,9 @@
+{
+  "handle": "fft-policy-selector",
+  "distribution_name": "omegaxiv-fft-policy-selector",
+  "version": "0.1.0",
+  "package_type": "library",
+  "import_name": "fft_policy_selector",
+  "manifest_path": "packages/fft-policy-selector/packaging_manifest.json",
+  "install_target": "packages/fft-policy-selector/dist/omegaxiv_fft_policy_selector-0.1.0-py3-none-any.whl"
+}
